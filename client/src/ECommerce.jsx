@@ -257,11 +257,11 @@ const EcommerceWebsites = () => {
   ];
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950 text-white overflow-hidden">
+      <div className="min-h-screen bg-zinc-950 text-white overflow-hidden">
         {/* Progress Bar */}
-        <div className="fixed top-0 left-0 w-full h-1 bg-slate-800 z-50">
+        <div className="fixed top-0 left-0 w-full h-1 bg-zinc-800 z-50">
           <div
-            className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 transition-all duration-300"
+            className="h-full bg-gradient-to-r from-[#e36a2e] via-orange-400 to-[#e36a2e] transition-all duration-300"
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
@@ -270,30 +270,30 @@ const EcommerceWebsites = () => {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20">
           {/* Animated Background */}
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-            <div className="absolute top-40 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000" />
-            <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-4000" />
+            <div className="absolute top-20 left-10 w-72 h-72 bg-[#e36a2e] rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
+            <div className="absolute top-40 right-10 w-72 h-72 bg-orange-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000" />
+            <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-[#cf5f28] rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-4000" />
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto mt-8">
             <div className="flex items-center justify-center mb-8">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-500/30 px-6 py-3 rounded-full">
-                <p className="text-sm font-medium bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-purple-400" />
+              <div className="bg-[#e36a2e]/10 backdrop-blur-sm border border-[#e36a2e]/30 px-6 py-3 rounded-full">
+                <p className="text-sm font-medium text-[#e36a2e] flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#e36a2e]" />
                   eCommerce Excellence
                 </p>
               </div>
             </div>
 
             <h1 className="text-6xl md:text-8xl font-black text-center mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-orange-400 via-[#e36a2e] to-orange-400 bg-clip-text text-transparent animate-gradient">
                 Transform Browsers
               </span>
               <br />
               <span className="text-white">Into Buyers</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-300 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl md:text-2xl text-zinc-400 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
               At Aussie Growth Media, we craft high-converting eCommerce
               websites that don't just look beautiful—they drive revenue. From
               seamless checkout experiences to powerful backend systems, we
@@ -301,25 +301,25 @@ const EcommerceWebsites = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center mb-16">
-              <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 px-6 py-4 rounded-2xl">
-                <div className="text-3xl font-bold text-purple-400 mb-1">
+              <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 px-6 py-4 rounded-2xl">
+                <div className="text-3xl font-bold text-[#e36a2e] mb-1">
                   3.2x
                 </div>
-                <div className="text-sm text-slate-400">
+                <div className="text-sm text-zinc-400">
                   Avg. Conversion Increase
                 </div>
               </div>
-              <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 px-6 py-4 rounded-2xl">
-                <div className="text-3xl font-bold text-pink-400 mb-1">
+              <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 px-6 py-4 rounded-2xl">
+                <div className="text-3xl font-bold text-[#e36a2e] mb-1">
                   1.8s
                 </div>
-                <div className="text-sm text-slate-400">Avg. Load Time</div>
+                <div className="text-sm text-zinc-400">Avg. Load Time</div>
               </div>
-              <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 px-6 py-4 rounded-2xl">
-                <div className="text-3xl font-bold text-blue-400 mb-1">
+              <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 px-6 py-4 rounded-2xl">
+                <div className="text-3xl font-bold text-[#e36a2e] mb-1">
                   99.9%
                 </div>
-                <div className="text-sm text-slate-400">Uptime Guarantee</div>
+                <div className="text-sm text-zinc-400">Uptime Guarantee</div>
               </div>
             </div>
 
@@ -327,18 +327,18 @@ const EcommerceWebsites = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="group bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700 p-6 rounded-2xl hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"
+                  className="group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 p-6 rounded-2xl hover:border-[#e36a2e]/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#e36a2e]/20"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-[#e36a2e]/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {React.cloneElement(feature.icon, {
-                      className: "w-8 h-8 text-purple-400",
+                      className: "w-8 h-8 text-[#e36a2e]",
                     })}
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-white">
                     {feature.title}
                   </h3>
-                  <p className="text-slate-400 leading-relaxed">
+                  <p className="text-zinc-400 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -348,15 +348,16 @@ const EcommerceWebsites = () => {
         </section>
 
         {/* Platform Expertise Section */}
-        <section className="py-24 px-6 relative">
+        <section className="py-24 px-6 relative bg-[#fafafa]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-black mb-6">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Platform Expertise
+                <span className="bg-gradient-to-r from-orange-400 to-[#e36a2e] bg-clip-text text-transparent">
+                  <span className="text-blue-800 pr-2">Platform</span>
+                  Expertise
                 </span>
               </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              <p className="text-xl text-zinc-500 max-w-3xl mx-auto">
                 We're platform-agnostic, meaning we select the perfect
                 technology stack for your unique business needs, not what's
                 easiest for us to build.
@@ -367,21 +368,21 @@ const EcommerceWebsites = () => {
               {platforms.map((platform, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl hover:border-purple-500/50 transition-all duration-300 group"
+                  className="bg-white border border-gray-100 p-8 rounded-3xl hover:border-[#e36a2e]/40 hover:shadow-[0_20px_40px_rgba(227,106,46,0.10)] transition-all duration-300 group"
                 >
-                  <h3 className="text-3xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-3xl font-bold mb-3 text-blue-800 group-hover:text-[#e36a2e] transition-colors">
                     {platform.name}
                   </h3>
-                  <p className="text-slate-400 mb-6 text-lg">
+                  <p className="text-zinc-500 mb-6 text-lg">
                     {platform.description}
                   </p>
                   <ul className="space-y-3">
                     {platform.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="flex items-center gap-3 text-slate-300"
+                        className="flex items-center gap-3 text-zinc-600"
                       >
-                        <Check className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <Check className="w-5 h-5 text-[#e36a2e] flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -393,16 +394,16 @@ const EcommerceWebsites = () => {
         </section>
 
         {/* Comprehensive Capabilities */}
-        <section className="py-24 px-6 bg-slate-900/50">
+        <section className="py-24 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-black mb-6">
                 <span className="text-white">Everything You Need to </span>
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-orange-400 to-[#e36a2e] bg-clip-text text-transparent">
                   Dominate Online
                 </span>
               </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
                 Our eCommerce solutions are comprehensive ecosystems designed to
                 handle every aspect of online retail, from product discovery to
                 post-purchase engagement.
@@ -413,11 +414,11 @@ const EcommerceWebsites = () => {
               {capabilities.map((cap, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl hover:border-purple-500/50 transition-all duration-300"
+                  className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 p-8 rounded-3xl hover:border-[#e36a2e]/50 transition-all duration-300"
                 >
-                  <h3 className="text-2xl font-bold mb-6 text-purple-400 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
-                      <ArrowRight className="w-5 h-5" />
+                  <h3 className="text-2xl font-bold mb-6 text-[#e36a2e] flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#e36a2e]/10 border border-[#e36a2e]/20 rounded-xl flex items-center justify-center">
+                      <ArrowRight className="w-5 h-5 text-[#e36a2e]" />
                     </div>
                     {cap.category}
                   </h3>
@@ -425,9 +426,9 @@ const EcommerceWebsites = () => {
                     {cap.items.map((item, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-3 text-slate-300 group/item"
+                        className="flex items-start gap-3 text-zinc-300 group/item"
                       >
-                        <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0 group-hover/item:scale-125 transition-transform" />
+                        <Check className="w-5 h-5 text-[#e36a2e] mt-0.5 flex-shrink-0 group-hover/item:scale-125 transition-transform" />
                         <span className="leading-relaxed">{item}</span>
                       </li>
                     ))}
@@ -439,15 +440,16 @@ const EcommerceWebsites = () => {
         </section>
 
         {/* Design Philosophy */}
-        <section className="py-24 px-6">
+        <section className="py-24 px-6 bg-[#fafafa]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-black mb-6">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Design That Sells
+                <span className="bg-gradient-to-r from-orange-400 to-[#e36a2e] bg-clip-text text-transparent">
+                  <span className="text-blue-800 pr-2">Design</span>
+                  That Sells
                 </span>
               </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              <p className="text-xl text-zinc-500 max-w-3xl mx-auto">
                 Great eCommerce design isn't about following trends—it's about
                 understanding psychology, user behavior, and the subtle art of
                 persuasion.
@@ -458,17 +460,17 @@ const EcommerceWebsites = () => {
               {designElements.map((element, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700 p-8 rounded-2xl hover:border-purple-500/50 transition-all duration-300 hover:scale-105 group"
+                  className="bg-white border border-gray-100 p-8 rounded-2xl hover:border-[#e36a2e]/40 hover:shadow-[0_20px_40px_rgba(227,106,46,0.10)] transition-all duration-300 hover:scale-105 group"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <Target className="w-6 h-6 text-purple-400" />
+                    <div className="w-12 h-12 bg-[#e36a2e]/10 border border-[#e36a2e]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Target className="w-6 h-6 text-[#e36a2e]" />
                     </div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                    <h3 className="text-xl font-bold text-blue-800 group-hover:text-[#e36a2e] transition-colors">
                       {element.title}
                     </h3>
                   </div>
-                  <p className="text-slate-400 leading-relaxed">
+                  <p className="text-zinc-500 leading-relaxed">
                     {element.description}
                   </p>
                 </div>
@@ -478,16 +480,16 @@ const EcommerceWebsites = () => {
         </section>
 
         {/* Technology Stack */}
-        <section className="py-24 px-6 bg-slate-900/50">
+        <section className="py-24 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-black mb-6">
                 <span className="text-white">Built With </span>
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-orange-400 to-[#e36a2e] bg-clip-text text-transparent">
                   Cutting-Edge Tech
                 </span>
               </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
                 We leverage the latest technologies to ensure your store is
                 fast, secure, and ready for whatever the future brings.
               </p>
@@ -497,12 +499,12 @@ const EcommerceWebsites = () => {
               {technologies.map((tech, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700 p-6 rounded-2xl hover:border-purple-500/50 transition-all duration-300 group"
+                  className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 p-6 rounded-2xl hover:border-[#e36a2e]/50 transition-all duration-300 group"
                 >
-                  <h3 className="text-2xl font-bold mb-2 text-purple-400 group-hover:scale-105 transition-transform inline-block">
+                  <h3 className="text-2xl font-bold mb-2 text-[#e36a2e] group-hover:scale-105 transition-transform inline-block">
                     {tech.name}
                   </h3>
-                  <p className="text-slate-300">{tech.use}</p>
+                  <p className="text-zinc-300">{tech.use}</p>
                 </div>
               ))}
             </div>
@@ -510,15 +512,16 @@ const EcommerceWebsites = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-24 px-6">
+        <section className="py-24 px-6 bg-[#fafafa]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-black mb-6">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Our Process
+                <span className="bg-gradient-to-r from-orange-400 to-[#e36a2e] bg-clip-text text-transparent">
+                  <span className="text-blue-800 pr-2">Our</span>
+                  Process
                 </span>
               </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              <p className="text-xl text-zinc-500 max-w-3xl mx-auto">
                 A proven methodology that turns your vision into a
                 revenue-generating machine.
               </p>
@@ -589,36 +592,36 @@ const EcommerceWebsites = () => {
               ].map((step, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-3xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 group"
+                  className="bg-white border border-gray-100 rounded-3xl overflow-hidden hover:border-[#e36a2e]/40 hover:shadow-[0_20px_40px_rgba(227,106,46,0.10)] transition-all duration-300 group"
                 >
                   <div className="p-8">
                     <div className="flex items-start gap-6 mb-6">
-                      <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <span className="text-2xl font-black text-purple-400">
+                      <div className="bg-[#e36a2e]/10 border border-[#e36a2e]/20 w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <span className="text-2xl font-black text-[#e36a2e]">
                           {index + 1}
                         </span>
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-3">
-                          <h3 className="text-3xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                          <h3 className="text-3xl font-bold text-blue-800 group-hover:text-[#e36a2e] transition-colors">
                             {step.phase}
                           </h3>
-                          <span className="text-sm font-medium text-purple-400 bg-purple-500/10 px-4 py-2 rounded-full">
+                          <span className="text-sm font-medium text-[#e36a2e] bg-[#e36a2e]/10 px-4 py-2 rounded-full">
                             {step.duration}
                           </span>
                         </div>
-                        <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                        <p className="text-zinc-500 text-lg leading-relaxed mb-6">
                           {step.description}
                         </p>
                         <div>
-                          <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">
+                          <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-wider mb-3">
                             Deliverables
                           </h4>
                           <div className="flex flex-wrap gap-3">
                             {step.deliverables.map((deliverable, idx) => (
                               <span
                                 key={idx}
-                                className="bg-slate-800/50 border border-slate-700 px-4 py-2 rounded-lg text-sm text-slate-300"
+                                className="bg-[#e36a2e]/5 border border-[#e36a2e]/20 px-4 py-2 rounded-lg text-sm text-zinc-600"
                               >
                                 {deliverable}
                               </span>
@@ -635,12 +638,14 @@ const EcommerceWebsites = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-24 px-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-24 px-6 bg-zinc-950 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#e36a2e]/5 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-black mb-6">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Why Choose Aussie Growth Media
+                <span className="bg-gradient-to-r from-orange-400 to-[#e36a2e] bg-clip-text text-transparent">
+                  Why Choose
+                  <span className="text-white pl-2">Aussie Growth Media</span>
                 </span>
               </h2>
             </div>
@@ -680,12 +685,12 @@ const EcommerceWebsites = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl hover:border-purple-500/50 transition-all duration-300 group"
+                  className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 p-8 rounded-3xl hover:border-[#e36a2e]/50 transition-all duration-300 group"
                 >
-                  <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#e36a2e] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-slate-300 leading-relaxed text-lg">
+                  <p className="text-zinc-400 leading-relaxed text-lg">
                     {item.description}
                   </p>
                 </div>
@@ -695,15 +700,18 @@ const EcommerceWebsites = () => {
         </section>
 
         {/* Final CTA */}
-        <section className="py-32 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30" />
+        <section className="py-32 px-6 relative overflow-hidden bg-zinc-950">
+          <div className="absolute inset-0 bg-[#e36a2e]/5" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <h2 className="text-5xl md:text-7xl font-black mb-8">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Ready to Transform Your Business?
+              <span className="bg-gradient-to-r from-orange-400 via-[#e36a2e] to-orange-400 bg-clip-text text-transparent">
+                Ready to
+                <span className="text-white p-2">Transform</span>
+                Your Business?
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed">
+            <p className="text-xl md:text-2xl text-zinc-400 mb-12 leading-relaxed">
               Let's build an eCommerce experience that doesn't just meet
               expectations—it exceeds them. Your customers deserve the best, and
               so do you.
@@ -711,7 +719,7 @@ const EcommerceWebsites = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <button
                 onClick={() => navigate("/contact")}
-                className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 flex items-center justify-center gap-3"
+                className="group bg-[#e36a2e] hover:bg-[#cf5f28] text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#e36a2e]/30 flex items-center justify-center gap-3"
               >
                 Start Your Project
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRightCircle } from "lucide-react";
 import image6 from "../images/logo.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import FormData from "./components/FormData";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 
@@ -146,7 +147,7 @@ export default function Branding() {
 
           <h1
             data-aos="fade-up"
-            className="text-5xl sm:text-6xl lg:text-7xl font-black text-zinc-900
+            className="text-5xl sm:text-6xl lg:text-7xl font-black text-blue-800
               leading-tight tracking-tight mb-6"
           >
             Branding &amp;{" "}
@@ -207,7 +208,7 @@ export default function Branding() {
               <span className="text-white text-2xl">🎨</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-black text-zinc-900 mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-blue-800 mb-4 tracking-tight">
               Why Branding Matters
             </h2>
             <p className="text-zinc-500 text-sm leading-relaxed mb-7 font-light">
@@ -300,7 +301,7 @@ export default function Branding() {
               <span className="w-5 h-px bg-[#e36a2e]" />
               What We Offer
             </p>
-            <h2 className="text-3xl sm:text-4xl font-black text-zinc-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-blue-800 tracking-tight">
               Our Branding <span className="text-[#e36a2e]">Services</span>
             </h2>
           </div>
@@ -330,7 +331,7 @@ export default function Branding() {
                   {s.icon}
                 </div>
 
-                <h3 className="text-lg font-black text-zinc-900 mb-2 tracking-tight">
+                <h3 className="text-lg font-black text-blue-800 mb-2 tracking-tight">
                   {s.title}
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-5 font-light">
@@ -376,7 +377,7 @@ export default function Branding() {
                 <span className="w-5 h-px bg-[#e36a2e]" />
                 Latest
               </p>
-              <h2 className="text-3xl sm:text-4xl font-black text-zinc-900 tracking-tight mb-2">
+              <h2 className="text-3xl sm:text-4xl font-black text-blue-800 tracking-tight mb-2">
                 News &amp; Updates
               </h2>
               <p className="text-zinc-400 text-sm font-light">
@@ -446,155 +447,7 @@ export default function Branding() {
           </div>
 
           {/* ── CONTACT FORM ── */}
-          <div
-            data-aos="slide-left"
-            className="relative bg-[#5a5a61] rounded-2xl overflow-hidden"
-          >
-            {/* top accent line */}
-            <div className="h-px bg-gradient-to-r from-transparent via-[#e36a2e]/60 to-transparent" />
-
-            <div className="p-7 sm:p-9">
-              {/* logo */}
-              <div className="mb-7 pb-6 border-b border-white/[0.06] flex items-center gap-3">
-                <img
-                  src={image6}
-                  alt="Aussie Growth Media"
-                  className="h-10 sm:h-12 w-auto object-contain"
-                />
-              </div>
-
-              {/* heading */}
-              <div className="mb-6">
-                <p
-                  className="text-[10px] tracking-[0.25em] uppercase text-[#e36a2e]/70
-                  font-semibold mb-1.5"
-                >
-                  Get In Touch
-                </p>
-                <h3 className="text-xl font-bold text-white leading-snug">
-                  Start your branding journey
-                </h3>
-              </div>
-
-              {/* text fields */}
-              <div className="space-y-3 mb-6">
-                {[
-                  { ph: "Full Name", name: "name", type: "text" },
-                  { ph: "Email Address", name: "email", type: "email" },
-                  { ph: "Phone Number", name: "phone", type: "tel" },
-                  {
-                    ph: "Preferred Callback Time",
-                    name: "callback",
-                    type: "text",
-                  },
-                ].map(({ ph, name, type }) => (
-                  <input
-                    key={name}
-                    type={type}
-                    placeholder={ph}
-                    value={formData[name]}
-                    onChange={(e) =>
-                      setFormData((p) => ({ ...p, [name]: e.target.value }))
-                    }
-                    className="w-full px-4 py-3 rounded-xl
-                      bg-white/[0.04] border border-white/[0.07]
-                      text-white text-sm placeholder:text-white/20
-                      focus:outline-none focus:border-[#e36a2e]/40
-                      transition-colors duration-200 font-['Montserrat']"
-                  />
-                ))}
-              </div>
-
-              {/* radio label */}
-              <p
-                className="text-[10px] tracking-[0.22em] uppercase text-white/25
-                font-semibold mb-3"
-              >
-                How can we help?
-              </p>
-
-              {/* radio list */}
-              <div
-                className="space-y-1 mb-6 max-h-52 overflow-y-auto pr-1
-                [&::-webkit-scrollbar]:w-[3px]
-                [&::-webkit-scrollbar-track]:bg-transparent
-                [&::-webkit-scrollbar-thumb]:bg-[#e36a2e]/20
-                [&::-webkit-scrollbar-thumb]:rounded-full"
-              >
-                {RADIO_OPTIONS.map((opt) => {
-                  const active = selected === opt;
-                  return (
-                    <label
-                      key={opt}
-                      className={`flex items-center gap-3 px-4 py-2.5 rounded-xl
-                        cursor-pointer transition-all duration-150 group relative
-                        ${
-                          active
-                            ? "bg-[#e36a2e]/10 border border-[#e36a2e]/25"
-                            : "border border-transparent hover:bg-white/[0.04]"
-                        }`}
-                    >
-                      {active && (
-                        <div className="absolute left-0 top-2 bottom-2 w-px bg-[#e36a2e]/60 rounded-full" />
-                      )}
-
-                      <div
-                        className={`w-3.5 h-3.5 rounded-full border shrink-0
-                        flex items-center justify-center transition-all duration-150
-                        ${
-                          active
-                            ? "border-[#e36a2e] bg-[#e36a2e]/15"
-                            : "border-white/15 group-hover:border-white/30"
-                        }`}
-                      >
-                        {active && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#e36a2e]" />
-                        )}
-                      </div>
-
-                      <input
-                        type="radio"
-                        name="service"
-                        value={opt}
-                        checked={active}
-                        onChange={() => setSelected(opt)}
-                        className="sr-only"
-                      />
-
-                      <span
-                        className={`text-xs font-medium transition-colors duration-150
-                        ${active ? "text-orange-300/90" : "text-white/35 group-hover:text-white/55"}`}
-                      >
-                        {opt}
-                      </span>
-                    </label>
-                  );
-                })}
-              </div>
-
-              {/* submit */}
-              <button
-                className="group relative w-full overflow-hidden
-                bg-[#e36a2e] hover:bg-[#cf5f28] text-black
-                font-bold text-xs tracking-[0.15em] uppercase
-                px-8 py-4 rounded-xl flex items-center justify-center gap-2
-                transition-all duration-300
-                hover:shadow-[0_8px_24px_rgba(227,106,46,0.4)]"
-              >
-                <div
-                  className="absolute inset-0 translate-x-[-100%]
-                  group-hover:translate-x-[100%] transition-transform duration-600
-                  bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                />
-                <span className="relative">Submit Request</span>
-                <ArrowRightCircle size={15} className="relative" />
-              </button>
-
-              <p className="text-center text-[10px] text-white/15 mt-4 tracking-wide">
-                We respond within 2 business hours
-              </p>
-            </div>
-          </div>
+          <FormData />
         </div>
       </section>
 

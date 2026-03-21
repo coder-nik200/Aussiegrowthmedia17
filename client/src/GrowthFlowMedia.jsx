@@ -1,27 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
-  Layout,
-  ShoppingCart,
   Globe,
-  PenTool,
-  TrendingUp,
-  Search,
-  MessageCircle,
   Target,
-  Megaphone,
-  FileText,
-  BarChart3,
   Server,
-  Users,
   Bot,
   Layers,
   UserPlus,
-  Menu,
   Mail,
   ChevronDown,
-  ArrowRightCircle,
-  Recycle,
-  Link,
   Plus,
 } from "lucide-react";
 import {
@@ -35,18 +21,14 @@ import {
 } from "lucide-react";
 import Confetti from "react-confetti";
 import { FaChevronDown, FaFacebook, FaGoogle } from "react-icons/fa";
-import image1 from "../images/image.png";
 import image2 from "../images/image2.png";
-import { toast, ToastContainer } from "react-toastify";
 import image3 from "../images/image3.png";
 import image4 from "../images/image4.png";
-import axios from "axios";
 import image5 from "../images/image5.png";
-// import vansh from "../images/vansh.png";
 import vansh from "../images/study.webp";
 
 import image6 from "../images/logo.png";
-import image10 from "../images/logo.jpg";
+import image10 from "../images/logowhite.png";
 
 import image7 from "../images/image7.jpg";
 import image8 from "../images/image8.jpg";
@@ -58,34 +40,27 @@ import image14 from "../images/image14.jpg";
 import image15 from "../images/image15.jpg";
 
 import { useWindowSize } from "react-use";
-import { Star } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TestimonialsSection from "./Testiminials";
 import { useNavigate } from "react-router-dom";
 
 import { motion, AnimatePresence } from "framer-motion";
+import FormData from "./components/FormData";
 import Marquee from "./components/Marquee";
+import TopBar from "./components/TopBar";
+import HeroSection from "./components/HeroSection";
+import ServicesSection from "./components/ServicesSection";
 
 export default function GrowthFlowMedia() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [currentImageText, setCurrentImageText] = useState(0);
 
   const { width, height } = useWindowSize();
   useEffect(() => {
     AOS.init({ duration: 800 });
   }, []);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    callback: "",
-    service: "",
-  });
-  let [enquiryList, setEnquiryList] = useState([]);
   // Images for the rotating display
   const designImages = [
     { id: 1, image: image2, text: "Build", color: "text-green-600" },
@@ -185,42 +160,6 @@ export default function GrowthFlowMedia() {
 
     { name: "Google Ads Management", path: "/googleads" },
   ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.email.endsWith("@gmail.com")) {
-      toast.error("incorrect email!!");
-      return;
-    }
-    axios
-      .post(
-        "https://growthflowmedia-esxn.vercel.app/web/api/enquiry/enquiry-insert",
-        formData,
-      )
-      .then((res) => {
-        toast.success("Message Sent!!!");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          callback: "",
-          service: "",
-        });
-        navigate("/success-page");
-      })
-      .catch((err) => {
-        toast.error("Failed to send message");
-        console.log(err);
-      });
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const menuItems = ["Our Services"];
 
   const ContactSection = useRef(null);
   const scrollToContact = () => {
@@ -413,201 +352,16 @@ export default function GrowthFlowMedia() {
       `}</style>
 
       {/* Top Bar */}
-      <div
-        data-aos="slide-down"
-        className="relative z-[101] w-full bg-[#fafafa] border-b border-gray-100/80 px-4 py-2 text-[11px] sm:text-xs font-medium tracking-wide text-gray-500"
-      >
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0">
-          {/* Contact Info Group */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-start">
-            {/* Phone */}
-            <a
-              href="tel:+919646174266"
-              className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-[#e36a2e]"
-            >
-              <Phone
-                size={13}
-                className="text-[#e36a2e] opacity-80 transition-opacity duration-300 group-hover:opacity-100"
-              />
-              <span className="whitespace-nowrap">+91 9646 174 266</span>
-            </a>
-
-            {/* Subtle Divider (Desktop Only) */}
-            <div className="hidden h-3 w-[1px] bg-gray-200 sm:block"></div>
-
-            {/* Email */}
-            <a
-              href="mailto:support@growthflowmedia.com"
-              className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-[#e36a2e]"
-            >
-              <Mail
-                size={13}
-                className="text-[#e36a2e] opacity-80 transition-opacity duration-300 group-hover:opacity-100"
-              />
-              <span className="hidden whitespace-nowrap sm:inline">
-                support@growthflowmedia.com
-              </span>
-              <span className="whitespace-nowrap sm:hidden">
-                support@growthflow...
-              </span>
-            </a>
-          </div>
-
-          {/* Actions Group */}
-          <div className="flex items-center">
-            <a
-              onClick={scrollToContact}
-              className="cursor-pointer whitespace-nowrap transition-colors duration-300 hover:text-[#e36a2e]"
-            >
-              Contact Support
-            </a>
-          </div>
-        </div>
-      </div>
+      <TopBar />
 
       {/* Hero Section - Updated for Mobile Order */}
-      <section className="relative h-screen z-10 overflow-hidden bg-[#fafafa] px-4 sm:px-6 pt-32 pb-16 lg:pt-48 lg:pb-32">
-        {/* Subtle Background Glow/Gradient */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-orange-50/50 to-transparent rounded-[100%] blur-3xl pointer-events-none"></div>
-
-        <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content Area */}
-          <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Premium Pill Badge */}
-            <div
-              data-aos="slide-right"
-              className="inline-flex items-center gap-2 bg-white border border-gray-100 shadow-sm px-4 py-2 rounded-full mb-8 text-xs sm:text-sm font-medium text-gray-600 whitespace-nowrap"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e36a2e] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#e36a2e]"></span>
-              </span>
-              Design & Digital Marketing Agency, India
-            </div>
-
-            {/* Dynamic Animated Headline (Mobile) */}
-            <div className="lg:hidden mb-6 w-full flex flex-col items-center">
-              <div className="h-48 w-48 mb-6 overflow-hidden rounded-2xl shadow-lg border border-gray-100">
-                <img
-                  key={designImages[currentImageIndex].id}
-                  src={designImages[currentImageIndex].image}
-                  alt={designImages[currentImageIndex].text}
-                  className="w-full h-full object-cover animate-popIn"
-                />
-              </div>
-              <h1
-                key={designImages[currentImageIndex].text}
-                className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${designImages[currentImageIndex].color} animate-popIn`}
-              >
-                {designImages[currentImageIndex].text}
-              </h1>
-            </div>
-
-            {/* Dynamic Animated Headline (Desktop) */}
-            <div
-              className="hidden lg:flex items-center gap-6 mb-2"
-              data-aos="slide-right"
-            >
-              <div className="h-28 w-28 shrink-0 overflow-hidden rounded-2xl shadow-lg border border-gray-100">
-                <img
-                  key={designImages[currentImageIndex].id}
-                  src={designImages[currentImageIndex].image}
-                  alt={designImages[currentImageIndex].text}
-                  className="w-full h-full object-cover animate-popIn"
-                />
-              </div>
-              <h1
-                key={designImages[currentImageIndex].text}
-                className={`text-6xl font-extrabold tracking-tight leading-none ${designImages[currentImageIndex].color} animate-popIn`}
-              >
-                {designImages[currentImageIndex].text}
-              </h1>
-            </div>
-
-            <h2
-              data-aos="slide-right"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
-            >
-              with Aussie Growth Media.
-            </h2>
-
-            <p
-              data-aos="slide-right"
-              className="text-gray-500 text-base sm:text-lg lg:text-xl max-w-xl mb-10 leading-relaxed"
-            >
-              Elevate your online presence with our seamless fusion of
-              cutting-edge design and strategic{" "}
-              <span className="font-semibold text-gray-800">
-                digital marketing
-              </span>{" "}
-              solutions.
-            </p>
-
-            {/* Premium Input & CTA Group */}
-            <div data-aos="slide-up" className="w-full max-w-lg lg:max-w-none">
-              <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 ml-1">
-                Select a Service to Begin
-              </label>
-
-              <div className="flex flex-col sm:flex-row gap-3 p-2 bg-white rounded-3xl sm:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100">
-                <select
-                  onChange={handleChangeSelection}
-                  defaultValue=""
-                  className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-3 text-gray-700 text-sm sm:text-base outline-none cursor-pointer"
-                >
-                  <option value="" disabled>
-                    Select a Service
-                  </option>
-                  <option value="/webdesign">Website Design</option>
-                  <option value="/ecommerce">ECommerce Websites</option>
-                  <option value="/service-site">Service Website</option>
-                  <option value="/branding&logodesign">
-                    Branding & Logo Design
-                  </option>
-                  <option value="/digitalmarketing">Digital Marketing</option>
-                  <option value="/seo">Search Engine Optimisation</option>
-                  <option value="/googleads">Google Ads Management</option>
-                  <option value="/metaads">Meta Ads Management</option>
-                  <option value="/conversionrate">
-                    Conversion Rate Optimization
-                  </option>
-                  <option value="/hosting">Managed Hosting</option>
-                  <option value="/gohigh">Go High Level CRM</option>
-                  <option value="/ai">
-                    AI Agents / Automation Development
-                  </option>
-                  <option value="/whitelabel">White Label Marketing</option>
-                  <option value="/lead">Lead Generation</option>
-                </select>
-
-                <button
-                  onClick={scrollToContact}
-                  className="flex items-center justify-center gap-2 bg-[#e36a2e] hover:bg-[#cf5f28] text-white px-8 py-3.5 rounded-2xl sm:rounded-full font-semibold transition-all duration-300 hover:shadow-[0_8px_20px_rgba(227,106,46,0.3)] hover:-translate-y-0.5 whitespace-nowrap text-sm sm:text-base"
-                >
-                  Get Started
-                  <ArrowRightCircle
-                    size={18}
-                    className="text-white opacity-90"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Image Area */}
-          <div className="order-1 lg:order-2 relative mt-8 lg:mt-0">
-            {/* Decorative background blob behind the image */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-orange-200/40 to-transparent blur-3xl transform scale-110 rounded-full z-0"></div>
-
-            <img
-              src={vansh}
-              data-aos="fade-up"
-              alt="Professional team member"
-              className="relative z-10 w-full max-w-md lg:max-w-lg mx-auto rounded-3xl shadow-2xl border-4 border-white transform transition-transform duration-700 hover:scale-[1.02]"
-            />
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        designImages={designImages}
+        currentImageIndex={currentImageIndex}
+        heroImage={vansh}
+        onServiceChange={handleChangeSelection}
+        onCtaClick={scrollToContact}
+      />
 
       <Marquee />
 
@@ -897,314 +651,7 @@ export default function GrowthFlowMedia() {
       </section>
 
       {/* Services Section */}
-      <section className="relative bg-[#fafafa] py-16 sm:py-24 lg:py-32 overflow-hidden">
-        {/* Subtle Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-500/5 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-          {/* Header Section */}
-          <div className="mx-auto max-w-3xl text-center mb-16 sm:mb-20">
-            <h2
-              data-aos="fade-up"
-              className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 mb-6"
-            >
-              Our Growth <span className="text-[#e36a2e]">Services.</span>
-            </h2>
-            <p
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="text-lg sm:text-xl text-gray-500 leading-relaxed"
-            >
-              We are a full-service digital marketing agency. Explore our
-              expertise and discover how we can engineer your growth.
-            </p>
-          </div>
-
-          {/* Quick Links / Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-16 sm:mb-24">
-            {[
-              {
-                name: "eCommerce Websites",
-                path: "/ecommerce",
-                icon: <Globe size={18} />,
-              },
-              {
-                name: "Service Websites",
-                path: "/service-site",
-                icon: <Globe size={18} />,
-              },
-              { name: "AI Automation", path: "/ai", icon: <Bot size={18} /> },
-              {
-                name: "Meta Ads",
-                path: "/metaads",
-                icon: <Target size={18} />,
-              },
-              {
-                name: "Google Ads",
-                path: "/googleads",
-                icon: <Target size={18} />,
-              },
-              {
-                name: "Managed Hosting",
-                path: "/hosting",
-                icon: <Server size={18} />,
-              },
-              {
-                name: "Lead Generation",
-                path: "/lead",
-                icon: <UserPlus size={18} />,
-              },
-              {
-                name: "White Label",
-                path: "/whitelabel",
-                icon: <Layers size={18} />,
-              },
-              { name: "SEO", path: "/seo", icon: <Globe size={18} /> },
-            ].map((btn, index) => (
-              <button
-                key={btn.name}
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                onClick={() => {
-                  window.location.href = btn.path;
-                }}
-                className="group flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-600 shadow-[0_2px_10px_rgb(0,0,0,0.02)] transition-all duration-300 hover:border-[#e36a2e] hover:bg-[#e36a2e] hover:text-white hover:shadow-md"
-              >
-                <span className="opacity-70 transition-opacity group-hover:opacity-100">
-                  {btn.icon}
-                </span>
-                {btn.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Featured Service Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* Card 1: Branding */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden cursor-pointer"
-              onClick={() => {
-                window.location.href = `/branding&logodesign`;
-              }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 transition-colors duration-500 group-hover:bg-[#e36a2e]/10 group-hover:border-[#e36a2e]/20">
-                <svg
-                  className="h-6 w-6 text-gray-600 transition-colors duration-500 group-hover:text-[#e36a2e]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 transition-colors group-hover:text-[#e36a2e]">
-                Branding & Logo Design
-              </h3>
-              <p className="text-gray-500 mb-8 text-sm sm:text-base leading-relaxed">
-                Captivate the world with one look at your brand and logo. Our
-                graphic design team is all about creating memorable identities.
-              </p>
-              <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-[#e36a2e]">
-                Explore Service
-                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* Card 2: Digital Marketing */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden cursor-pointer"
-              onClick={() => {
-                window.location.href = `/digitalmarketing`;
-              }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 transition-colors duration-500 group-hover:bg-[#e36a2e]/10 group-hover:border-[#e36a2e]/20">
-                <svg
-                  className="h-6 w-6 text-gray-600 transition-colors duration-500 group-hover:text-[#e36a2e]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 transition-colors group-hover:text-[#e36a2e]">
-                Digital Marketing
-              </h3>
-              <p className="text-gray-500 mb-8 text-sm sm:text-base leading-relaxed">
-                Don't just follow the trend, become one. Stand out with our
-                remarkable digital marketing strategies designed for scale.
-              </p>
-              <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-[#e36a2e]">
-                Explore Service
-                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* Card 3: CRO */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="300"
-              className="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden cursor-pointer"
-              onClick={() => {
-                window.location.href = `/conversionrate`;
-              }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 transition-colors duration-500 group-hover:bg-[#e36a2e]/10 group-hover:border-[#e36a2e]/20">
-                <svg
-                  className="h-6 w-6 text-gray-600 transition-colors duration-500 group-hover:text-[#e36a2e]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 transition-colors group-hover:text-[#e36a2e]">
-                Conversion Rate Opt.
-              </h3>
-              <p className="text-gray-500 mb-8 text-sm sm:text-base leading-relaxed">
-                Optimizing conversion rates is vital for reaching potential
-                buyers. Turn your existing traffic into revenue.
-              </p>
-              <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-[#e36a2e]">
-                Explore Service
-                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* Card 4: Web Design */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="400"
-              className="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden cursor-pointer"
-              onClick={() => {
-                window.location.href = `/webdesign`;
-              }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 transition-colors duration-500 group-hover:bg-[#e36a2e]/10 group-hover:border-[#e36a2e]/20">
-                <svg
-                  className="h-6 w-6 text-gray-600 transition-colors duration-500 group-hover:text-[#e36a2e]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 transition-colors group-hover:text-[#e36a2e]">
-                Web Design & Dev
-              </h3>
-              <p className="text-gray-500 mb-8 text-sm sm:text-base leading-relaxed">
-                Your website works even when you don't. Build a stunning,
-                high-converting digital storefront with our expert team.
-              </p>
-              <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-[#e36a2e]">
-                Explore Service
-                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* Card 5: Managed Hosting */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="500"
-              className="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden cursor-pointer"
-              onClick={() => {
-                window.location.href = `/hosting`;
-              }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 transition-colors duration-500 group-hover:bg-[#e36a2e]/10 group-hover:border-[#e36a2e]/20">
-                <svg
-                  className="h-6 w-6 text-gray-600 transition-colors duration-500 group-hover:text-[#e36a2e]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 transition-colors group-hover:text-[#e36a2e]">
-                Managed Hosting
-              </h3>
-              <p className="text-gray-500 mb-8 text-sm sm:text-base leading-relaxed">
-                Looking for lightning-fast speeds and bulletproof security? We
-                provide comprehensive enterprise-grade hosting.
-              </p>
-              <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-[#e36a2e]">
-                Explore Service
-                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* Card 6: Go High Level CRM */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="600"
-              className="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden cursor-pointer"
-              onClick={() => {
-                window.location.href = `/gohigh`;
-              }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 transition-colors duration-500 group-hover:bg-[#e36a2e]/10 group-hover:border-[#e36a2e]/20">
-                <svg
-                  className="h-6 w-6 text-gray-600 transition-colors duration-500 group-hover:text-[#e36a2e]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 transition-colors group-hover:text-[#e36a2e]">
-                GoHighLevel CRM
-              </h3>
-              <p className="text-gray-500 mb-8 text-sm sm:text-base leading-relaxed">
-                Master your sales pipeline. GoHighLevel is an all-in-one CRM and
-                marketing automation platform for scaling businesses.
-              </p>
-              <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-[#e36a2e]">
-                Explore Service
-                <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* Why Choose Us Section */}
       <section className="relative bg-[#060608] py-20 sm:py-28 lg:py-36 overflow-hidden">
@@ -1586,6 +1033,7 @@ export default function GrowthFlowMedia() {
       </section>
 
       <TestimonialsSection />
+
       {/* FAQ Section */}
       {/* FAQ Section - Updated with Working Toggle */}
       <section className="relative overflow-hidden bg-zinc-950 py-20 sm:py-32 border-t border-zinc-900">
@@ -1752,129 +1200,7 @@ export default function GrowthFlowMedia() {
 
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
             {/* ── LEFT: Contact Form ── */}
-            <form onSubmit={handleSubmit} data-aos="fade-right">
-              <div className="bg-[#4e4e50] rounded-2xl p-6 sm:p-8 lg:p-10 border border-white/[0.06]">
-                {/* Logo */}
-                <div className="mb-8 pb-7 border-b border-white/[0.06]">
-                  <img
-                    src={image10}
-                    alt="Aussie Growth Media"
-                    className="h-10 sm:h-12 w-auto"
-                  />
-                </div>
-
-                {/* Text inputs */}
-                <div className="space-y-3 mb-7">
-                  {[
-                    { placeholder: "Full Name", name: "name", type: "text" },
-                    {
-                      placeholder: "Email Address",
-                      name: "email",
-                      type: "email",
-                    },
-                    {
-                      placeholder: "Phone Number",
-                      name: "phone",
-                      type: "text",
-                    },
-                    {
-                      placeholder: "Preferred Callback Time",
-                      name: "callback",
-                      type: "text",
-                    },
-                  ].map(({ placeholder, name, type }) => (
-                    <input
-                      key={name}
-                      type={type}
-                      placeholder={placeholder}
-                      name={name}
-                      value={formData[name]}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3.5 rounded-xl bg-white/[0.04] text-white border border-white/[0.08] focus:outline-none focus:border-orange-500/50 placeholder:text-white/25 font-['Montserrat'] text-sm transition-colors duration-300"
-                    />
-                  ))}
-                </div>
-
-                {/* Service label */}
-                <p className="font-['Montserrat'] text-[11px] font-bold tracking-[0.2em] text-white/30 uppercase mb-4">
-                  How can we help?
-                </p>
-
-                {/* Service radio list */}
-                <div
-                  className="space-y-1.5 mb-7 max-h-56 overflow-y-auto pr-1
-            [&::-webkit-scrollbar]:w-1
-            [&::-webkit-scrollbar-track]:bg-transparent
-            [&::-webkit-scrollbar-thumb]:bg-white/10
-            [&::-webkit-scrollbar-thumb]:rounded-full"
-                >
-                  {[
-                    "Website Design",
-                    "ECommerce Websites",
-                    "Service Website",
-                    "Branding & Logo Design",
-                    "Digital Marketing",
-                    "Search Engine Optimisation",
-                    "Google Ads Management",
-                    "Meta Ads Management",
-                    "Content Marketing",
-                    "Conversion Rate Optimization",
-                    "Managed Hosting",
-                    "Go High Level CRM",
-                    "AI Agents/Automation Development",
-                    "White Label Marketing",
-                    "Lead Generation",
-                  ].map((option, i) => (
-                    <label
-                      key={i}
-                      className={`flex items-center gap-3 px-4 py-2.5 rounded-xl cursor-pointer transition-all duration-200 ${
-                        formData.service === option
-                          ? "bg-orange-500/15 border border-orange-500/30"
-                          : "bg-white/[0.03] border border-transparent hover:bg-white/[0.06]"
-                      }`}
-                    >
-                      <div
-                        className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-all duration-200 ${
-                          formData.service === option
-                            ? "border-orange-400 bg-orange-400"
-                            : "border-white/20"
-                        }`}
-                      >
-                        {formData.service === option && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                        )}
-                      </div>
-                      <input
-                        type="radio"
-                        name="service"
-                        value={option}
-                        checked={formData.service === option}
-                        onChange={handleChange}
-                        className="sr-only"
-                      />
-                      <span
-                        className={`font-['Montserrat'] text-xs transition-colors duration-200 ${
-                          formData.service === option
-                            ? "text-orange-300"
-                            : "text-white/40"
-                        }`}
-                      >
-                        {option}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="group w-full bg-orange-500 hover:bg-orange-400 text-black font-['Montserrat'] font-semibold text-sm tracking-[0.15em] uppercase px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
-                >
-                  Submit Request
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-              </div>
-            </form>
+            <FormData />
 
             {/* ── RIGHT: News ── */}
             <div data-aos="fade-left">

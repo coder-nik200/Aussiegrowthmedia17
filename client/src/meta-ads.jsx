@@ -1,54 +1,26 @@
 import React, { useState, useEffect } from "react";
-import {
-  ShoppingBag,
-  Zap,
-  Shield,
-  TrendingUp,
-  Globe,
-  Smartphone,
-  CreditCard,
-  Search,
-  BarChart,
-  Users,
-  Package,
-  Star,
-  ArrowRight,
-  Check,
-  Sparkles,
-  Lock,
-  Truck,
-  MousePointer,
-  Eye,
-  Target,
-  Menu,
-  ChevronDown,
-  ArrowRightCircle,
-} from "lucide-react";
+
 import Footer from "./Footer";
-import image6 from "../images/logo.png";
 import AOS from "aos";
-import { FaChevronDown } from "react-icons/fa";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  MessageSquare,
+  Target,
+  Palette,
+  BarChart2,
+  Search,
+  Zap,
+  ShoppingCart,
+  MessageCircle,
+  Globe,
+  Lightbulb,
+  Rocket,
+  TrendingUp,
+} from "lucide-react";
 const MetaAdsManagement = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Handle service selection
-  const handleServiceSelect = (path) => {
-    navigate(path);
-    setIsServicesOpen(false);
-    setIsMenuOpen(false);
-  };
   const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuItems = [
-    "Our Services",
-    "Our Products",
-    "Our Work",
-    "Industries",
-    "The Agency",
-  ];
+
   useEffect(() => {
     AOS.init({ duration: 800 });
   }, []);
@@ -81,38 +53,9 @@ const MetaAdsManagement = () => {
     document.querySelectorAll(".pop").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-  const serviceItems = [
-    { name: "Website Design", path: "/webdesign" },
-    { name: "Lead Generation", path: "/lead" },
-    { name: "Go High Level CRM", path: "/gohigh" },
-    { name: "Ai Agents/Automation Development", path: "/ai" },
 
-    { name: "White Label Marketing", path: "/whitelabel" },
-
-    { name: "Digital Marketing", path: "/digitalmarketing" },
-    { name: "Managed Hosting", path: "/hosting" },
-
-    { name: "Conversion Rate Optimization", path: "/conversionrate" },
-
-    { name: "Service Website", path: "/service-site" },
-    { name: "Meta Ads Management", path: "/metaads" },
-
-    { name: "Search Engine Optimisation", path: "/seo" },
-
-    { name: "Branding & Logo Design", path: "/branding&logodesign" },
-
-    { name: "ECommerce Websites", path: "/ecommerce" },
-
-    { name: "Google Ads Management", path: "/googleads" },
-  ];
-  const handleChangeSelection = (e) => {
-    const selectedValue = e.target.value;
-    if (selectedValue) {
-      navigate(selectedValue);
-    }
-  };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
+    <div className="min-h-screen bg-[#fafafa]">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
         
@@ -164,70 +107,68 @@ const MetaAdsManagement = () => {
           transform: translateY(-10px) scale(1.05);
         }
       `}</style>
+
       {/* Hero */}
-      <div className="relative overflow-hidden py-20 lg:py-32">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-200/50 via-red-200/50 to-pink-200/50 opacity-50"></div>
+      <div className="relative overflow-hidden py-20 lg:py-32 bg-zinc-950 min-h-screen">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#e36a2e]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center pop">
-            <div className="inline-flex items-center space-x-2 bg-red-100 border-2 border-red-500 rounded-full px-6 py-3 mb-8">
-              <svg
-                className="w-5 h-5 text-red-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
-                <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
-              </svg>
-              <span className="text-sm font-bold text-red-900 tracking-wider">
+            <div className="inline-flex items-center space-x-2 bg-[#e36a2e]/10 border-2 border-[#e36a2e]/40 rounded-full px-6 py-3 mb-8 mt-16 sm:mt-0">
+              <MessageSquare className="w-5 h-5 text-[#e36a2e]" />
+              <span className="text-sm font-bold text-[#e36a2e] tracking-wider">
                 META ADS MANAGEMENT
               </span>
             </div>
 
-            <h1 className="brand-font text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 mb-6">
-              Dominate Social
-            </h1>
+            <div className="mt-20">
+              <h1 className="brand-font text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#e36a2e] mb-6">
+                <span className="text-white">Dominate</span>
+                Social
+              </h1>
 
-            <p className="text-xl sm:text-2xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Expert Facebook & Instagram advertising that turns scroll into
-              sales. We create thumb-stopping ads that drive real business
-              results.
-            </p>
+              <p className="text-xl sm:text-2xl text-zinc-400 max-w-4xl mx-auto mb-12 leading-relaxed">
+                Expert Facebook & Instagram advertising that turns scroll into
+                sales. We create thumb-stopping ads that drive real business
+                results.
+              </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {metrics.map((metric, idx) => (
-                <div
-                  key={idx}
-                  className={`stat-card bg-white rounded-2xl p-8 shadow-xl border-4 ${
-                    activeMetric === idx
-                      ? "border-red-500"
-                      : "border-orange-200"
-                  }`}
-                >
-                  <div className="text-sm text-gray-500 mb-2">
-                    {metric.desc}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {metrics.map((metric, idx) => (
+                  <div
+                    key={idx}
+                    className={`stat-card bg-zinc-900/50 backdrop-blur-md rounded-2xl p-8 border-2 ${
+                      activeMetric === idx
+                        ? "border-[#e36a2e]"
+                        : "border-zinc-800"
+                    }`}
+                  >
+                    <div className="text-sm text-zinc-400 mb-2">
+                      {metric.desc}
+                    </div>
+                    <div className="brand-font text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#e36a2e] mb-2">
+                      {metric.value}
+                    </div>
+                    <div className="text-xs font-bold text-zinc-400 tracking-wider">
+                      {metric.label}
+                    </div>
                   </div>
-                  <div className="brand-font text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 mb-2">
-                    {metric.value}
-                  </div>
-                  <div className="text-xs font-bold text-gray-600 tracking-wider">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Services Grid */}
-      <div className="py-20 lg:py-32">
+      <div className="py-20 lg:py-32 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 pop">
-            <h2 className="brand-font text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-6">
+            <h2 className="brand-font text-4xl sm:text-5xl md:text-6xl font-black text-blue-800 mb-6">
               Full-Service Meta Advertising
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-zinc-500 max-w-3xl mx-auto">
               From strategy to execution, we handle every aspect of your Meta ad
               campaigns
             </p>
@@ -236,7 +177,7 @@ const MetaAdsManagement = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: "🎯",
+                icon: <Target className="w-10 h-10 text-[#e36a2e]" />,
                 title: "Audience Targeting",
                 description:
                   "Precision targeting using Meta's advanced audience tools. We identify and reach your ideal customers with laser-focused demographics, interests, and behaviors.",
@@ -248,7 +189,7 @@ const MetaAdsManagement = () => {
                 ],
               },
               {
-                icon: "🎨",
+                icon: <Palette className="w-10 h-10 text-[#e36a2e]" />,
                 title: "Creative Development",
                 description:
                   "Eye-catching ad creatives that stop the scroll. Professional graphics, compelling copy, and video content designed to convert.",
@@ -260,7 +201,7 @@ const MetaAdsManagement = () => {
                 ],
               },
               {
-                icon: "📊",
+                icon: <BarChart2 className="w-10 h-10 text-[#e36a2e]" />,
                 title: "Campaign Strategy",
                 description:
                   "Data-driven strategies aligned with your business goals. Whether it's brand awareness, leads, or sales, we optimize for what matters most.",
@@ -272,7 +213,7 @@ const MetaAdsManagement = () => {
                 ],
               },
               {
-                icon: "🔍",
+                icon: <Search className="w-10 h-10 text-[#e36a2e]" />,
                 title: "Analytics & Reporting",
                 description:
                   "Comprehensive performance tracking and transparent reporting. Know exactly where your ad dollars go and what results they generate.",
@@ -284,7 +225,7 @@ const MetaAdsManagement = () => {
                 ],
               },
               {
-                icon: "⚡",
+                icon: <Zap className="w-10 h-10 text-[#e36a2e]" />,
                 title: "Ad Optimization",
                 description:
                   "Continuous testing and refinement to maximize performance. We constantly optimize bids, placements, and creatives for peak efficiency.",
@@ -296,7 +237,7 @@ const MetaAdsManagement = () => {
                 ],
               },
               {
-                icon: "🛒",
+                icon: <ShoppingCart className="w-10 h-10 text-[#e36a2e]" />,
                 title: "E-commerce Integration",
                 description:
                   "Seamless integration with your online store. Dynamic product ads, catalog management, and purchase optimization for maximum sales.",
@@ -310,29 +251,29 @@ const MetaAdsManagement = () => {
             ].map((service, idx) => (
               <div
                 key={idx}
-                className="pop bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border-l-4 border-red-500"
+                className="pop bg-white rounded-3xl p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_40px_rgba(227,106,46,0.10)] hover:-translate-y-2 transition-all duration-500 border-l-4 border-l-[#e36a2e]"
                 style={{ transitionDelay: `${idx * 0.1}s` }}
               >
                 <div
-                  className="text-5xl mb-4 float-wave"
+                  className="mb-6 float-wave w-16 h-16 bg-[#e36a2e]/10 rounded-2xl flex items-center justify-center"
                   style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   {service.icon}
                 </div>
-                <h3 className="brand-font text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="brand-font text-2xl font-bold text-blue-800 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-zinc-500 mb-6 leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-2">
                   {service.features.map((feature, i) => (
                     <li
                       key={i}
-                      className="flex items-center text-sm text-gray-700"
+                      className="flex items-center text-sm text-zinc-600"
                     >
                       <svg
-                        className="w-4 h-4 text-red-500 mr-2"
+                        className="w-4 h-4 text-[#e36a2e] mr-2 shrink-0"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -353,24 +294,33 @@ const MetaAdsManagement = () => {
       </div>
 
       {/* Platform Coverage */}
-      <div className="py-20 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-20 lg:py-32 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 pop">
-            <h2 className="brand-font text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-6">
+            <h2 className="brand-font text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6">
               Complete Meta Ecosystem
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-zinc-400">
               Advertise across all Meta platforms for maximum reach
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="pop bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl p-12 text-white shadow-2xl">
-              <div className="text-6xl mb-6">📘</div>
+            <div className="pop bg-zinc-900/50 backdrop-blur-md border-2 border-[#e36a2e]/40 rounded-3xl p-12 text-white shadow-2xl hover:border-[#e36a2e] transition-colors">
+              <div className="w-16 h-16 bg-[#e36a2e]/10 border border-[#e36a2e]/30 rounded-2xl flex items-center justify-center mb-6">
+                <svg
+                  className="w-9 h-9 text-[#e36a2e]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </div>
               <h3 className="brand-font text-4xl font-black mb-4">
                 Facebook Ads
               </h3>
-              <p className="text-lg text-blue-100 mb-6">
+              <p className="text-lg text-zinc-400 mb-6">
                 Reach 2.9 billion monthly active users with targeted campaigns
                 across News Feed, Stories, Marketplace, and more.
               </p>
@@ -383,8 +333,8 @@ const MetaAdsManagement = () => {
                   "Video feeds",
                   "In-stream videos",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center text-blue-100">
-                    <div className="w-2 h-2 bg-blue-300 rounded-full mr-3"></div>
+                  <div key={i} className="flex items-center text-zinc-300">
+                    <div className="w-2 h-2 bg-[#e36a2e] rounded-full mr-3"></div>
                     {item}
                   </div>
                 ))}
@@ -392,14 +342,22 @@ const MetaAdsManagement = () => {
             </div>
 
             <div
-              className="pop bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 rounded-3xl p-12 text-white shadow-2xl"
+              className="pop bg-zinc-900/50 backdrop-blur-md border-2 border-[#e36a2e]/40 rounded-3xl p-12 text-white shadow-2xl hover:border-[#e36a2e] transition-colors"
               style={{ transitionDelay: "0.2s" }}
             >
-              <div className="text-6xl mb-6">📸</div>
+              <div className="w-16 h-16 bg-[#e36a2e]/10 border border-[#e36a2e]/30 rounded-2xl flex items-center justify-center mb-6">
+                <svg
+                  className="w-9 h-9 text-[#e36a2e]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </div>
               <h3 className="brand-font text-4xl font-black mb-4">
                 Instagram Ads
               </h3>
-              <p className="text-lg text-pink-100 mb-6">
+              <p className="text-lg text-zinc-400 mb-6">
                 Connect with 1.4 billion users through visually stunning ads on
                 the world's most engaging visual platform.
               </p>
@@ -412,8 +370,8 @@ const MetaAdsManagement = () => {
                   "Shopping ads",
                   "IGTV ads",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center text-pink-100">
-                    <div className="w-2 h-2 bg-pink-300 rounded-full mr-3"></div>
+                  <div key={i} className="flex items-center text-zinc-300">
+                    <div className="w-2 h-2 bg-[#e36a2e] rounded-full mr-3"></div>
                     {item}
                   </div>
                 ))}
@@ -421,14 +379,16 @@ const MetaAdsManagement = () => {
             </div>
 
             <div
-              className="pop bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl p-12 text-white shadow-2xl"
+              className="pop bg-zinc-900/50 backdrop-blur-md border-2 border-[#e36a2e]/40 rounded-3xl p-12 text-white shadow-2xl hover:border-[#e36a2e] transition-colors"
               style={{ transitionDelay: "0.3s" }}
             >
-              <div className="text-6xl mb-6">💬</div>
+              <div className="w-16 h-16 bg-[#e36a2e]/10 border border-[#e36a2e]/30 rounded-2xl flex items-center justify-center mb-6">
+                <MessageCircle className="w-9 h-9 text-[#e36a2e]" />
+              </div>
               <h3 className="brand-font text-4xl font-black mb-4">
                 Messenger Ads
               </h3>
-              <p className="text-lg text-blue-100 mb-6">
+              <p className="text-lg text-zinc-400 mb-6">
                 Start conversations and drive engagement with interactive ads in
                 Messenger, reaching people where they chat.
               </p>
@@ -441,8 +401,8 @@ const MetaAdsManagement = () => {
                   "Chatbot integration",
                   "Lead generation",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center text-blue-100">
-                    <div className="w-2 h-2 bg-blue-300 rounded-full mr-3"></div>
+                  <div key={i} className="flex items-center text-zinc-300">
+                    <div className="w-2 h-2 bg-[#e36a2e] rounded-full mr-3"></div>
                     {item}
                   </div>
                 ))}
@@ -450,14 +410,16 @@ const MetaAdsManagement = () => {
             </div>
 
             <div
-              className="pop bg-gradient-to-br from-teal-500 to-green-600 rounded-3xl p-12 text-white shadow-2xl"
+              className="pop bg-zinc-900/50 backdrop-blur-md border-2 border-[#e36a2e]/40 rounded-3xl p-12 text-white shadow-2xl hover:border-[#e36a2e] transition-colors"
               style={{ transitionDelay: "0.4s" }}
             >
-              <div className="text-6xl mb-6">🌐</div>
+              <div className="w-16 h-16 bg-[#e36a2e]/10 border border-[#e36a2e]/30 rounded-2xl flex items-center justify-center mb-6">
+                <Globe className="w-9 h-9 text-[#e36a2e]" />
+              </div>
               <h3 className="brand-font text-4xl font-black mb-4">
                 Audience Network
               </h3>
-              <p className="text-lg text-teal-100 mb-6">
+              <p className="text-lg text-zinc-400 mb-6">
                 Extend your reach beyond Meta platforms to thousands of
                 high-quality mobile apps and websites.
               </p>
@@ -470,8 +432,8 @@ const MetaAdsManagement = () => {
                   "Rewarded videos",
                   "In-article ads",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center text-teal-100">
-                    <div className="w-2 h-2 bg-teal-300 rounded-full mr-3"></div>
+                  <div key={i} className="flex items-center text-zinc-300">
+                    <div className="w-2 h-2 bg-[#e36a2e] rounded-full mr-3"></div>
                     {item}
                   </div>
                 ))}
@@ -482,13 +444,13 @@ const MetaAdsManagement = () => {
       </div>
 
       {/* Process */}
-      <div className="py-20 lg:py-32">
+      <div className="py-20 lg:py-32 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 pop">
-            <h2 className="brand-font text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-6">
+            <h2 className="brand-font text-4xl sm:text-5xl md:text-6xl font-black text-blue-800 mb-6">
               Our Process
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-zinc-500">
               A proven methodology that delivers consistent results
             </p>
           </div>
@@ -500,35 +462,35 @@ const MetaAdsManagement = () => {
                 title: "Strategy & Planning",
                 description:
                   "We start with a deep dive into your business, goals, and target audience. Competitive analysis and market research inform our strategic approach.",
-                color: "from-orange-500 to-red-500",
+                icon: <Lightbulb className="w-8 h-8 text-white" />,
               },
               {
                 step: "02",
                 title: "Creative Production",
                 description:
                   "Our design team creates scroll-stopping ad creatives. Multiple variations for A/B testing ensure we find what resonates with your audience.",
-                color: "from-red-500 to-pink-500",
+                icon: <Palette className="w-8 h-8 text-white" />,
               },
               {
                 step: "03",
                 title: "Campaign Launch",
                 description:
                   "Precise setup of campaigns, ad sets, and ads. Pixel installation, conversion tracking, and quality checks before we go live.",
-                color: "from-pink-500 to-purple-500",
+                icon: <Rocket className="w-8 h-8 text-white" />,
               },
               {
                 step: "04",
                 title: "Optimization & Scaling",
                 description:
                   "Daily monitoring and optimization. We kill underperformers, scale winners, and continuously test new audiences and creatives.",
-                color: "from-purple-500 to-blue-500",
+                icon: <TrendingUp className="w-8 h-8 text-white" />,
               },
               {
                 step: "05",
                 title: "Reporting & Growth",
                 description:
                   "Transparent reporting with actionable insights. Regular strategy sessions to discuss performance and plan for growth.",
-                color: "from-blue-500 to-cyan-500",
+                icon: <BarChart2 className="w-8 h-8 text-white" />,
               },
             ].map((item, idx) => (
               <div
@@ -536,19 +498,18 @@ const MetaAdsManagement = () => {
                 className="pop"
                 style={{ transitionDelay: `${idx * 0.1}s` }}
               >
-                <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border-l-8 border-red-500 flex flex-col lg:flex-row items-start lg:items-center gap-8">
-                  <div
-                    className={`flex-shrink-0 w-24 h-24 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center shadow-lg`}
-                  >
-                    <span className="brand-font text-4xl font-black text-white">
+                <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-gray-100 border-l-8 border-l-[#e36a2e] flex flex-col lg:flex-row items-start lg:items-center gap-8 hover:shadow-[0_20px_40px_rgba(227,106,46,0.10)] hover:-translate-y-1 transition-all duration-300">
+                  <div className="flex-shrink-0 w-24 h-24 bg-[#e36a2e] rounded-2xl flex items-center justify-center shadow-lg shadow-[#e36a2e]/30 flex-col gap-1">
+                    {item.icon}
+                    <span className="brand-font text-lg font-black text-white leading-none">
                       {item.step}
                     </span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="brand-font text-3xl font-black text-gray-900 mb-3">
+                    <h3 className="brand-font text-3xl font-black text-blue-800 mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-lg text-zinc-500 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -560,20 +521,21 @@ const MetaAdsManagement = () => {
       </div>
 
       {/* CTA */}
-      <div className="py-20 lg:py-32 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pop">
+      <div className="py-20 lg:py-32 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pop relative z-10">
           <h2 className="brand-font text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6">
             Ready to Scale Your Business?
           </h2>
-          <p className="text-xl text-orange-100 mb-12">
+          <p className="text-xl text-zinc-400 mb-12">
             Let's create Meta ad campaigns that drive real ROI
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button
               onClick={() => navigate("/contact")}
-              className="bg-white text-red-600 px-12 py-6 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all"
+              className="bg-[#e36a2e] hover:bg-[#cf5f28] text-white px-12 py-6 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#e36a2e]/30 transform hover:scale-105 transition-all duration-300"
             >
-              let's Start
+              Let's Start
             </button>
           </div>
         </div>

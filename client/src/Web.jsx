@@ -1,74 +1,15 @@
-import React, { useEffect, useState } from "react";
-import image6 from "../images/logo.jpg";
-import {
-  Menu,
-  ChevronDown,
-  ChevronRight,
-  ArrowRightCircle,
-  Phone,
-  Mail,
-  Globe,
-  Bot,
-  Target,
-  Server,
-  UserPlus,
-  Layers,
-  CheckCircle2,
-} from "lucide-react";
-import { FaChevronDown } from "react-icons/fa";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Server, CheckCircle2 } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { motion, AnimatePresence } from "framer-motion";
 import Footer from "./Footer";
+import WebEnquiryForm from "./components/WebEnquiryForm";
 
 const WebDesignDevelopment = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  // Form State
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    callback: "",
-    service: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Form submitted!");
-  };
-
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
     window.scrollTo(0, 0);
   }, []);
-
-  const serviceItems = [
-    { name: "Website Design", path: "/webdesign" },
-    { name: "ECommerce Websites", path: "/ecommerce" },
-    { name: "Service Website", path: "/service-site" },
-    { name: "Branding & Logo Design", path: "/branding&logodesign" },
-    { name: "Digital Marketing", path: "/digitalmarketing" },
-    { name: "Search Engine Optimisation", path: "/seo" },
-    { name: "Google Ads Management", path: "/googleads" },
-    { name: "Meta Ads Management", path: "/metaads" },
-    { name: "Conversion Rate Optimization", path: "/conversionrate" },
-    { name: "Managed Hosting", path: "/hosting" },
-    { name: "Go High Level CRM", path: "/gohigh" },
-    { name: "Ai Agents/Automation", path: "/ai" },
-    { name: "White Label Marketing", path: "/whitelabel" },
-    { name: "Lead Generation", path: "/lead" },
-  ];
 
   const services = [
     {
@@ -108,12 +49,6 @@ const WebDesignDevelopment = () => {
     { name: "WordPress" },
     { name: "Shopify" },
   ];
-
-  const handleServiceSelect = (path) => {
-    navigate(path);
-    setIsServicesOpen(false);
-    setMenuOpen(false);
-  };
 
   return (
     <div className="min-h-screen bg-[#fafafa]">
@@ -250,7 +185,7 @@ const WebDesignDevelopment = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-blue-800 tracking-tight mb-6"
               data-aos="fade-up"
             >
               Comprehensive <span className="text-[#e36a2e]">Expertise.</span>
@@ -274,7 +209,7 @@ const WebDesignDevelopment = () => {
                 data-aos-delay={index * 100}
                 className="group bg-white rounded-3xl p-8 lg:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2"
               >
-                <h3 className="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-100">
+                <h3 className="text-2xl font-bold text-blue-800 mb-8 pb-4 border-b border-gray-100">
                   {service.category}
                 </h3>
                 <ul className="space-y-5">
@@ -368,94 +303,7 @@ const WebDesignDevelopment = () => {
 
             {/* Right Column: Premium Contact Form */}
             <div data-aos="fade-left">
-              <form
-                onSubmit={handleSubmit}
-                className="relative bg-zinc-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-10 border border-zinc-800 shadow-[0_8px_30px_rgb(0,0,0,0.2)]"
-              >
-                <div className="mb-8 pb-7 border-b border-zinc-800/80">
-                  <h3 className="text-2xl font-bold text-white tracking-tight">
-                    Ready to build?
-                  </h3>
-                  <p className="text-zinc-400 text-sm mt-2">
-                    Fill out the form below and our web experts will be in
-                    touch.
-                  </p>
-                </div>
-
-                <div className="space-y-4 mb-8">
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-5 py-4 rounded-xl bg-zinc-950/50 text-white border border-zinc-800 focus:outline-none focus:border-[#e36a2e] focus:ring-1 focus:ring-[#e36a2e] placeholder:text-zinc-600 text-sm sm:text-base transition-all duration-300"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-5 py-4 rounded-xl bg-zinc-950/50 text-white border border-zinc-800 focus:outline-none focus:border-[#e36a2e] focus:ring-1 focus:ring-[#e36a2e] placeholder:text-zinc-600 text-sm sm:text-base transition-all duration-300"
-                  />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      placeholder="Phone Number"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-5 py-4 rounded-xl bg-zinc-950/50 text-white border border-zinc-800 focus:outline-none focus:border-[#e36a2e] focus:ring-1 focus:ring-[#e36a2e] placeholder:text-zinc-600 text-sm sm:text-base transition-all duration-300"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Callback Time"
-                      name="callback"
-                      value={formData.callback}
-                      onChange={handleChange}
-                      className="w-full px-5 py-4 rounded-xl bg-zinc-950/50 text-white border border-zinc-800 focus:outline-none focus:border-[#e36a2e] focus:ring-1 focus:ring-[#e36a2e] placeholder:text-zinc-600 text-sm sm:text-base transition-all duration-300"
-                    />
-                  </div>
-                </div>
-
-                <p className="text-xs sm:text-sm font-bold tracking-[0.15em] text-zinc-500 uppercase mb-4">
-                  How can we help?
-                </p>
-                <div className="flex flex-wrap gap-2.5 mb-8 max-h-48 overflow-y-auto pr-2 custom-scrollbar [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-zinc-700 [&::-webkit-scrollbar-thumb]:rounded-full">
-                  {[
-                    "Website Design",
-                    "ECommerce Websites",
-                    "Service Website",
-                    "Web Development",
-                    "Managed Hosting",
-                    "Conversion Optimization",
-                  ].map((option, i) => (
-                    <label
-                      key={i}
-                      className={`cursor-pointer px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border ${formData.service === option ? "bg-[#e36a2e] border-[#e36a2e] text-white shadow-[0_4px_12px_rgba(227,106,46,0.3)]" : "bg-zinc-950/50 border-zinc-800 text-zinc-400 hover:bg-zinc-800 hover:text-white"}`}
-                    >
-                      <input
-                        type="radio"
-                        name="service"
-                        value={option}
-                        checked={formData.service === option}
-                        onChange={handleChange}
-                        className="hidden"
-                      />
-                      {option}
-                    </label>
-                  ))}
-                </div>
-
-                <button
-                  type="submit"
-                  className="group w-full bg-[#e36a2e] hover:bg-[#cf5f28] text-white font-semibold text-sm sm:text-base tracking-wide uppercase px-8 py-4 rounded-full transition-all duration-300 shadow-[0_8px_20px_rgba(227,106,46,0.3)] hover:-translate-y-0.5 flex items-center justify-center gap-3"
-                >
-                  Submit Request{" "}
-                  <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
-              </form>
+              <WebEnquiryForm />
             </div>
           </div>
         </div>

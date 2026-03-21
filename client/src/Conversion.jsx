@@ -1,41 +1,16 @@
-import React from "react";
-import {
-  Menu,
-  ChevronDown,
-  ChevronRight,
-  ArrowRightCircle,
-  Phone,
-  Mail,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import AOS from "aos";
-import { FaChevronDown } from "react-icons/fa";
 import "aos/dist/aos.css";
 
-import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-import image6 from "../images/logo.jpg";
+import { useEffect } from "react";
+import image6 from "../images/image6.jpeg";
+import FormData from "./components/FormData";
 import Footer from "./Footer";
+
 const ConversionRateOptimization = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Handle service selection
-  const handleServiceSelect = (path) => {
-    navigate(path);
-    setIsServicesOpen(false);
-    setIsMenuOpen(false);
-  };
-  const menuItems = [
-    "Our Services",
-    "Our Products",
-    "Our Work",
-    "Industries",
-    "The Agency",
-  ];
   useEffect(() => {
     AOS.init({ duration: 800 });
   }, []);
-  const [menuOpen, setMenuOpen] = useState(false);
   const steps = [
     {
       number: "01",
@@ -88,167 +63,131 @@ const ConversionRateOptimization = () => {
       ],
     },
   ];
-  const quickLinks = [
-    "Brisbane Local SEO",
-    "Website Design Brisbane",
-    "Digital Marketing Brisbane",
-    "SEO Brisbane",
-    "Website Design Gold Coast",
-    "SEO Gold Coast",
-    "Who We Are",
-    "What We Do",
-    "Our Expertise",
-    "Contact",
-  ];
-  const packages = [
-    "Website Design Packages",
-    "Business Website Package",
-    "Search Engine Optimisation Packages",
-    "Meta Ads Management Package",
-    "Google Ads Management Packages",
-    "Pay Per Lead",
-    "Facebook Ads Services",
-    "Digital Marketing Consultancy",
-    "Social Media Marketing",
-    "SEO Consultancy / Free SEO Audit",
-    "AI Voice Automation",
-    "Landing Pages",
-    "PPC Management",
-  ];
 
-  const service = [
-    "Website Design",
-    "ECommerce Websites",
-    "Service Website",
-    "Branding & Logo Design",
-    "Digital Marketing",
-    "Search Engine Optimisation",
-    "Google Ads Management",
-    "Meta Ads Management",
-    "Content Marketing",
-    "Conversion Rate Optimization",
-    "Managed Hosting",
-    "Go High Level CRM",
-    "Ai Agents/Automation Development",
-    "White Label Marketing",
-    "Lead Generation",
-  ];
-  const serviceItems = [
-    { name: "Website Design", path: "/webdesign" },
-    { name: "Lead Generation", path: "/lead" },
-    { name: "Go High Level CRM", path: "/gohigh" },
-    { name: "Ai Agents/Automation Development", path: "/ai" },
-
-    { name: "White Label Marketing", path: "/whitelabel" },
-
-    { name: "Digital Marketing", path: "/digitalmarketing" },
-    { name: "Managed Hosting", path: "/hosting" },
-
-    { name: "Conversion Rate Optimization", path: "/conversionrate" },
-
-    { name: "Service Website", path: "/service-site" },
-    { name: "Meta Ads Management", path: "/metaads" },
-
-    { name: "Search Engine Optimisation", path: "/seo" },
-
-    { name: "Branding & Logo Design", path: "/branding&logodesign" },
-
-    { name: "ECommerce Websites", path: "/ecommerce" },
-
-    { name: "Google Ads Management", path: "/googleads" },
-  ];
-  const industries = [
-    "Mortgage & Finance",
-    "Automotive",
-    "Construction & Building",
-    "ECommerce",
-    "Health & Medical",
-    "NDIS",
-    "Professional Services",
-    "Trade",
-    "Hospitality",
-    "Lawyers & Immigration Agent",
-    "NDIS Website Designs & Marketing",
-  ];
-  const navigate = useNavigate();
-  const handleChangeSelection = (e) => {
-    const selectedValue = e.target.value;
-    if (selectedValue) {
-      navigate(selectedValue);
-    }
-  };
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 py-12 mt-16">
-        <div className="text-center mb-12 fade-in">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            <span className="gradient-text">Conversion Rate Optimization</span>
+      {/* ── MAIN CONTENT ── */}
+      <div className="max-w-7xl mx-auto px-4 py-16 mt-16">
+        {/* Hero heading */}
+        <div className="text-center mb-16 fade-in">
+          <div className="inline-flex items-center gap-2 bg-[#e36a2e]/10 border border-[#e36a2e]/30 px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.2em] uppercase text-[#e36a2e] mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#e36a2e] animate-pulse" />
+            Data-Driven Growth
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-black mb-5 leading-tight tracking-tight">
+            <span className="text-blue-800">Conversion </span>
+            <span
+              className="relative inline-block"
+              style={{ color: "#e36a2e" }}
+            >
+              Rate
+              <svg
+                viewBox="0 0 100 12"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute left-0 w-full"
+                style={{ bottom: "-6px", height: "12px" }}
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M1,8 C8,3 18,10 28,6 C38,2 48,9 58,5 C68,1 78,9 88,5 C93,3 97,7 99,4"
+                  stroke="#e36a2e"
+                  strokeWidth="2.5"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+            <span className="text-blue-800"> Optimization</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-zinc-500 max-w-3xl mx-auto font-light leading-relaxed">
             Transform more visitors into customers through data-driven
             optimization of your digital experience.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white rounded-2xl shadow-xl p-8 service-card">
-            <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-6">
-              <span className="text-white text-2xl">📊</span>
+        {/* Top 2-col grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-14">
+          {/* Why CRO card */}
+          <div className="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100 p-8 service-card hover:shadow-[0_16px_56px_rgba(227,106,46,0.12)] hover:-translate-y-1 transition-all duration-300">
+            <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-[#e36a2e] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-orange-200">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+                />
+              </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-blue-800 mb-4 tracking-tight">
               Why CRO is Essential
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-zinc-500 mb-6 leading-relaxed">
               Conversion Rate Optimization isn't just about improving
               numbers—it's about understanding your users and providing them
               with the best possible experience that naturally leads to
               conversions.
             </p>
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6">
-              <div className="text-center mb-4">
-                <div className="text-3xl font-bold text-green-600">
-                  Average 35-75%
+            <div className="bg-gradient-to-br from-[#e36a2e]/5 to-orange-50 border border-[#e36a2e]/20 rounded-2xl p-6">
+              <div className="text-center mb-3">
+                <div className="text-4xl font-black text-[#e36a2e] tracking-tight">
+                  Average 35–75%
                 </div>
-                <div className="text-gray-600">Conversion Increase</div>
+                <div className="text-zinc-500 text-sm font-medium mt-1 tracking-wide uppercase">
+                  Conversion Increase
+                </div>
               </div>
-              <p className="text-gray-700 text-center">
+              <p className="text-zinc-600 text-center text-sm leading-relaxed">
                 Our clients typically see conversion improvements within the
                 first 90 days
               </p>
             </div>
           </div>
 
+          {/* Framework card */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl p-8 h-full">
+            <div className="bg-gradient-to-br from-[#e36a2e]/5 via-orange-50 to-[#fafafa] rounded-3xl border border-[#e36a2e]/15 p-8 h-full">
               <img
-                src="/images/cro.jpg"
+                src={image6}
                 alt="CRO Analytics Dashboard"
-                className="rounded-xl shadow-lg w-full h-64 object-cover mb-6"
+                className="rounded-2xl shadow-xl w-full h-48 sm:h-64 object-cover mb-6 border border-[#e36a2e]/10"
               />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-blue-800 mb-3 tracking-tight">
                 Our CRO Framework
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-zinc-500 mb-5 leading-relaxed text-sm">
                 We use a systematic approach to identify and fix conversion
                 barriers across your digital properties.
               </p>
-              <div className="space-y-4">
-                <div className="flex items-center bg-white rounded-lg p-4">
-                  <div className="text-green-500 font-bold text-lg mr-4">✓</div>
+              <div className="space-y-3">
+                <div className="flex items-center bg-white rounded-xl p-4 shadow-sm border border-orange-50 hover:border-[#e36a2e]/30 transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-[#e36a2e]/10 flex items-center justify-center text-[#e36a2e] font-bold text-sm mr-4 shrink-0">
+                    ✓
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">
+                    <h4 className="font-semibold text-blue-800 text-sm">
                       Heatmap Analysis
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-zinc-500 text-xs mt-0.5">
                       See where users click, scroll, and hesitate
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center bg-white rounded-lg p-4">
-                  <div className="text-green-500 font-bold text-lg mr-4">✓</div>
+                <div className="flex items-center bg-white rounded-xl p-4 shadow-sm border border-orange-50 hover:border-[#e36a2e]/30 transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-[#e36a2e]/10 flex items-center justify-center text-[#e36a2e] font-bold text-sm mr-4 shrink-0">
+                    ✓
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">A/B Testing</h4>
-                    <p className="text-gray-600 text-sm">
+                    <h4 className="font-semibold text-blue-800 text-sm">
+                      A/B Testing
+                    </h4>
+                    <p className="text-zinc-500 text-xs mt-0.5">
                       Test variations to find what converts best
                     </p>
                   </div>
@@ -258,36 +197,59 @@ const ConversionRateOptimization = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
+        {/* Steps row */}
+        <div className="grid md:grid-cols-4 gap-5 mb-14">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg p-6 service-card"
+              className="bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.07)] border border-gray-100 p-6 service-card hover:shadow-[0_8px_32px_rgba(227,106,46,0.15)] hover:-translate-y-1 hover:border-[#e36a2e]/30 transition-all duration-300 relative overflow-hidden"
             >
-              <div className="text-3xl font-bold text-green-500 mb-4">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#e36a2e]/5 rounded-bl-full opacity-60" />
+              <div className="text-4xl font-black text-[#e36a2e] mb-4 tracking-tighter relative">
                 {step.number}
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <h3 className="text-base font-bold text-blue-800 mb-2 tracking-tight">
                 {step.title}
               </h3>
-              <p className="text-gray-600">{step.description}</p>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl p-8 text-white">
-          <h2 className="text-3xl font-bold mb-6">Key Optimization Areas</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+        {/* Optimization areas banner */}
+        <div
+          className="rounded-3xl p-8 text-white relative overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(135deg, #e36a2e 0%, #cf5f28 50%, #b85322 100%)",
+          }}
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
+          <h2 className="text-3xl font-black mb-2 tracking-tight relative">
+            Key Optimization Areas
+          </h2>
+          <p className="text-orange-100 text-sm mb-8 relative">
+            Where we focus to move the needle
+          </p>
+          <div className="grid md:grid-cols-3 gap-5 relative">
             {optimizationAreas.map((area, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-colors duration-200"
               >
-                <h3 className="text-xl font-bold mb-4">{area.area}</h3>
-                <ul className="space-y-3">
+                <h3 className="text-lg font-bold mb-4 tracking-tight">
+                  {area.area}
+                </h3>
+                <ul className="space-y-2.5">
                   {area.improvements.map((improvement, idx) => (
-                    <li key={idx} className="flex items-center">
-                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                    <li
+                      key={idx}
+                      className="flex items-center gap-3 text-sm text-orange-50"
+                    >
+                      <div className="w-1.5 h-1.5 bg-orange-200 rounded-full shrink-0"></div>
                       {improvement}
                     </li>
                   ))}
@@ -297,46 +259,48 @@ const ConversionRateOptimization = () => {
           </div>
         </div>
       </div>
-      {/* Latest News Section */}
-      <section className="bg-white py-12 sm:py-20">
+
+      {/* ── LATEST NEWS + FORM SECTION ── */}
+      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+          <div className="grid md:grid-cols-2 gap-10 sm:gap-14">
+            {/* News column */}
             <div>
               <h2
                 data-aos="slide-right"
-                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 tracking-tight leading-tight"
               >
                 Latest News & Updates
               </h2>
               <p
                 data-aos="slide-up"
-                className="text-orange-500 text-lg sm:text-xl mb-8 sm:mb-12"
+                className="text-[#e36a2e] text-lg sm:text-xl mb-10 sm:mb-12 font-medium"
                 style={{ fontFamily: "Comic Sans MS, cursive" }}
               >
                 Stay up To Date With The Latest From Aussie Growth Media.
               </p>
 
-              <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+              <div className="space-y-5 sm:space-y-6 mb-8">
                 <div
                   data-aos="slide-right"
-                  className="flex flex-col sm:flex-row gap-3 bg-white shadow-lg sm:shadow-xl rounded-lg p-4 sm:p-6 hover:shadow-xl transition-shadow"
+                  className="flex flex-col sm:flex-row gap-4 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-5 sm:p-6 hover:border-zinc-700 hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <div className="h-40 w-full sm:w-80 border rounded-lg overflow-hidden">
+                  <div className="h-40 w-full sm:w-72 rounded-xl overflow-hidden shrink-0">
                     <img
                       src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
                       alt="Team meeting"
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <div className="">
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-2 leading-snug">
                       How Aussie Growth Media Delivers High-Performance PPC
                       Management in Brisbane
                     </h3>
-                    <p className="text-gray-500 text-xs sm:text-sm mb-2">
+                    <p className="text-[#e36a2e] text-xs mb-2 tracking-wide uppercase font-medium">
                       January 3, 2026
                     </p>
-                    <p className="text-gray-600 text-sm sm:text-base">
+                    <p className="text-zinc-400 text-sm leading-relaxed">
                       PPC management is becoming the foundation stone for the
                       success of businesses in Brisbane. The instantaneous reach
                       that it offers
@@ -346,24 +310,24 @@ const ConversionRateOptimization = () => {
 
                 <div
                   data-aos="slide-right"
-                  className="flex flex-col sm:flex-row gap-3 bg-white shadow-lg sm:shadow-xl rounded-lg p-4 sm:p-6 hover:shadow-xl transition-shadow"
+                  className="flex flex-col sm:flex-row gap-4 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-5 sm:p-6 hover:border-zinc-700 hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <div className="h-40 w-full sm:w-80 border rounded-lg overflow-hidden">
+                  <div className="h-40 w-full sm:w-72 rounded-xl overflow-hidden shrink-0">
                     <img
                       src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
                       alt="Team meeting"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="">
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-2 leading-snug">
                       Why Your Business Needs a Professional Website Design
                       Agency in Brisbane
                     </h3>
-                    <p className="text-gray-500 text-xs sm:text-sm mb-2">
+                    <p className="text-[#e36a2e] text-xs mb-2 tracking-wide uppercase font-medium">
                       December 26, 2025
                     </p>
-                    <p className="text-gray-600 text-sm sm:text-base">
+                    <p className="text-zinc-400 text-sm leading-relaxed">
                       Website Design Agency in Brisbane plays a crucial role in
                       today's market, where your website is often the very first
                     </p>
@@ -373,89 +337,18 @@ const ConversionRateOptimization = () => {
 
               <button
                 data-aos="slide-left"
-                className="bg-orange-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium hover:bg-orange-600 flex items-center gap-2 text-sm sm:text-base"
+                className="bg-[#e36a2e] text-white px-7 sm:px-9 py-3 rounded-full font-semibold hover:bg-[#cf5f28] hover:shadow-lg hover:shadow-[#e36a2e]/30 flex items-center gap-2 text-sm sm:text-base transition-all duration-200"
               >
                 View All <ChevronRight className="w-4 h-4" />
               </button>
             </div>
 
-            <div
-              data-aos="slide-left"
-              className="bg-black border rounded-lg p-4 sm:p-6 lg:p-8 mt-8 md:mt-0"
-            >
-              <div className="flex items-center gap-2 mb-4 sm:mb-6">
-                <img
-                  src={image6}
-                  alt="Aussie Growth Media"
-                  className="h-12 sm:h-16 lg:h-20 w-auto"
-                />
-              </div>
-
-              <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded bg-gray-900 text-white border border-gray-700 focus:outline-none focus:border-orange-500 text-sm sm:text-base"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded bg-gray-900 text-white border border-gray-700 focus:outline-none focus:border-orange-500 text-sm sm:text-base"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded bg-gray-900 text-white border border-gray-700 focus:outline-none focus:border-orange-500 text-sm sm:text-base"
-                />
-
-                <input
-                  type="tel"
-                  placeholder="Preferd call back time"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded bg-gray-900 text-white border border-gray-700 focus:outline-none focus:border-orange-500 text-sm sm:text-base"
-                />
-              </div>
-
-              <p className="text-white mb-3 sm:mb-4 text-sm sm:text-base">
-                How We May Help You?
-              </p>
-
-              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 max-h-60 overflow-y-auto pr-2">
-                {[
-                  "Website Design",
-                  "ECommerce Websites",
-                  "Service Website",
-                  "Branding & Logo Design",
-                  "Digital Marketing",
-                  "Search Engine Optimisation",
-                  "Google Ads Management",
-                  "Meta Ads Management",
-                  "Content Marketing",
-                  "Conversion Rate Optimization",
-                  "Managed Hosting",
-                  "Go High Level CRM",
-                  "Ai Agents/Automation Development",
-                  "White Label Marketing",
-                  "Lead Generation",
-                ].map((option, i) => (
-                  <label
-                    key={i}
-                    className="flex items-center gap-3 bg-gray-100 px-3 sm:px-4 py-2 sm:py-3 rounded cursor-pointer hover:bg-gray-800"
-                  >
-                    <input type="radio" name="service" className="w-4 h-4" />
-                    <span className="text-black text-xs sm:text-sm">
-                      {option}
-                    </span>
-                  </label>
-                ))}
-              </div>
-
-              <button className="w-full bg-orange-500 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-orange-600 text-base sm:text-lg">
-                Submit Request
-              </button>
-            </div>
+            {/* Dark form column */}
+            <FormData />
           </div>
         </div>
       </section>
+
       {/* Footer */}
       <Footer />
     </>

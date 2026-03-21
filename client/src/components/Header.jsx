@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowRightCircle, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import image6 from "../../images/logo.jpg";
+import image6 from "../../images/logoflat.png";
 
 const SERVICE_ITEMS = [
   { name: "Website Design", path: "/webdesign" },
@@ -61,7 +61,7 @@ export default function Header({ scrollToContact }) {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-[100] w-full pt-4 px-4 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-[100] w-full pt-8 px-8  transition-all duration-300"
       data-aos="slide-down"
     >
       <div className="mx-auto max-w-7xl">
@@ -87,7 +87,7 @@ export default function Header({ scrollToContact }) {
             <img
               src={image6}
               alt="Aussie Growth Media"
-              className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+              className="h-10 sm:h-8 md:h-10 w-auto object-contain"
             />
           </div>
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import { CheckCircle2, ChevronRight } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
@@ -170,7 +170,7 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-zinc-400 text-lg sm:text-xl leading-relaxed max-w-lg mb-10">
-              Growth Flow Media is a full-service digital agency born from one
+              Aussie Growth Media is a full-service digital agency born from one
               obsession — making businesses impossible to ignore online.
             </p>
 
@@ -238,7 +238,7 @@ export default function AboutPage() {
               Who We Are
             </p>
 
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-8">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-800 leading-tight tracking-tight mb-8">
               Built Different.
               <br />
               <span className="text-[#e36a2e]">Built to Win.</span>
@@ -246,13 +246,13 @@ export default function AboutPage() {
 
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
               <p>
-                Founded in 2012, Growth Flow Media started with a single mission
-                — to give businesses the unfair advantage online that enterprise
-                brands take for granted.
+                Founded in 2012, Aussie Growth Media started with a single
+                mission — to give businesses the unfair advantage online that
+                enterprise brands take for granted.
               </p>
               <p>
                 Today we're a team of{" "}
-                <span className="font-bold text-gray-900">
+                <span className="font-bold text-blue-800">
                   designers, developers, marketers, and strategists
                 </span>{" "}
                 who obsess over one thing: your growth. We've built over 1,200
@@ -293,7 +293,7 @@ export default function AboutPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </div>
-              <span className="text-sm font-bold text-gray-900 tracking-wide uppercase">
+              <span className="text-sm font-bold text-blue-800 tracking-wide uppercase">
                 India's #1 Growth Agency
               </span>
             </div>
@@ -362,7 +362,7 @@ export default function AboutPage() {
               <span className="w-6 h-px bg-[#e36a2e] hidden sm:block" />
               The People
             </p>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-800 leading-tight tracking-tight">
               Meet the Team <br className="hidden sm:block" />
               <span className="text-[#e36a2e]">Behind Your Growth.</span>
             </h2>
@@ -399,7 +399,7 @@ export default function AboutPage() {
 
                 {/* Info Block */}
                 <div className="p-6 bg-white relative z-10">
-                  <h3 className="font-bold text-gray-900 text-lg mb-1">
+                  <h3 className="font-bold text-blue-800 text-lg mb-1">
                     {member.name}
                   </h3>
                   <p className="text-[#e36a2e] text-sm font-bold tracking-wide uppercase">

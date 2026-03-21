@@ -140,7 +140,7 @@ export default function TestimonialsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20 max-w-3xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-blue-800 mb-6">
             What Our <span className="text-[#e36a2e]">Clients Say.</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-500 leading-relaxed">

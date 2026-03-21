@@ -1,55 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {
-  ShoppingBag,
-  Zap,
-  Shield,
-  TrendingUp,
-  Globe,
-  Smartphone,
-  CreditCard,
-  Search,
-  BarChart,
-  Users,
-  Package,
-  Star,
-  ArrowRight,
-  Check,
-  Sparkles,
-  Lock,
-  Truck,
-  MousePointer,
-  Eye,
-  Target,
-  Menu,
-  ChevronDown,
-  ArrowRightCircle,
-} from "lucide-react";
 import Footer from "./Footer";
-import image6 from "../images/logo.png";
 import AOS from "aos";
-import { FaChevronDown } from "react-icons/fa";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 const LeadGeneration = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  // Handle service selection
-  const handleServiceSelect = (path) => {
-    navigate(path);
-    setIsServicesOpen(false);
-    setIsMenuOpen(false);
-  };
   const navigate = useNavigate();
   const [leadCount, setLeadCount] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuItems = [
-    "Our Services",
-    "Our Products",
-    "Our Work",
-    "Industries",
-    "The Agency",
-  ];
+
   useEffect(() => {
     AOS.init({ duration: 800 });
   }, []);
@@ -59,36 +16,7 @@ const LeadGeneration = () => {
     }, 100);
     return () => clearInterval(timer);
   }, []);
-  const serviceItems = [
-    { name: "Website Design", path: "/webdesign" },
-    { name: "Lead Generation", path: "/lead" },
-    { name: "Go High Level CRM", path: "/gohigh" },
-    { name: "Ai Agents/Automation Development", path: "/ai" },
 
-    { name: "White Label Marketing", path: "/whitelabel" },
-
-    { name: "Digital Marketing", path: "/digitalmarketing" },
-    { name: "Managed Hosting", path: "/hosting" },
-
-    { name: "Conversion Rate Optimization", path: "/conversionrate" },
-
-    { name: "Service Website", path: "/service-site" },
-    { name: "Meta Ads Management", path: "/metaads" },
-
-    { name: "Search Engine Optimisation", path: "/seo" },
-
-    { name: "Branding & Logo Design", path: "/branding&logodesign" },
-
-    { name: "ECommerce Websites", path: "/ecommerce" },
-
-    { name: "Google Ads Management", path: "/googleads" },
-  ];
-  const handleChangeSelection = (e) => {
-    const selectedValue = e.target.value;
-    if (selectedValue) {
-      navigate(selectedValue);
-    }
-  };
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -106,7 +34,7 @@ const LeadGeneration = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-[#fafafa]">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap');
         
@@ -145,60 +73,62 @@ const LeadGeneration = () => {
         
         .lead-card:hover {
           transform: translateY(-12px) rotate(2deg);
-          box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.35);
+          box-shadow: 0 25px 50px -12px rgba(227, 106, 46, 0.35);
         }
       `}</style>
+
       {/* Hero */}
-      <div className="relative overflow-hidden py-20 lg:py-32">
+      <div className="relative overflow-hidden py-20 lg:py-32 bg-zinc-950">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center bounce">
-            <div className="inline-flex items-center bg-green-100 border-2 border-green-600 rounded-full px-6 py-3 mb-8">
+            <div className="inline-flex items-center bg-[#e36a2e]/10 border-2 border-[#e36a2e]/30 rounded-full px-6 py-3 mb-8 mt-16 sm:mt-0">
               <svg
-                className="w-5 h-5 text-green-600 mr-2"
+                className="w-5 h-5 text-[#e36a2e] mr-2"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              <span className="text-sm font-bold text-green-900 tracking-wider">
+              <span className="text-sm font-bold text-[#e36a2e] tracking-wider">
                 LEAD GENERATION EXPERTS
               </span>
             </div>
 
-            <h1 className="bold-font text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 mb-6 leading-none">
+            <h1 className="bold-font text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#e36a2e] mb-6 leading-none">
               FILL YOUR
-              <span className="block">PIPELINE</span>
+              <span className="block text-white">PIPELINE</span>
             </h1>
 
-            <p className="text-xl sm:text-2xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl sm:text-2xl text-zinc-400 max-w-4xl mx-auto mb-12 leading-relaxed">
               Generate high-quality, ready-to-convert leads through
               multi-channel campaigns. We bring you customers who are actively
               looking for what you sell.
             </p>
 
-            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border-4 border-green-500 max-w-4xl mx-auto">
+            <div className="bg-zinc-900/50 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl border border-zinc-800 max-w-4xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                  <div className="bold-font text-6xl sm:text-7xl text-green-600 mb-2">
+                  <div className="bold-font text-6xl sm:text-7xl text-[#e36a2e] mb-2">
                     {leadCount.toLocaleString()}+
                   </div>
-                  <div className="text-sm text-gray-600 font-semibold uppercase">
+                  <div className="text-sm text-zinc-400 font-semibold uppercase">
                     Leads Generated This Month
                   </div>
                 </div>
                 <div>
-                  <div className="bold-font text-6xl sm:text-7xl text-emerald-600 mb-2">
+                  <div className="bold-font text-6xl sm:text-7xl text-[#e36a2e] mb-2">
                     47%
                   </div>
-                  <div className="text-sm text-gray-600 font-semibold uppercase">
+                  <div className="text-sm text-zinc-400 font-semibold uppercase">
                     Average Conversion Rate
                   </div>
                 </div>
                 <div>
-                  <div className="bold-font text-6xl sm:text-7xl text-teal-600 mb-2">
+                  <div className="bold-font text-6xl sm:text-7xl text-[#e36a2e] mb-2">
                     $23
                   </div>
-                  <div className="text-sm text-gray-600 font-semibold uppercase">
+                  <div className="text-sm text-zinc-400 font-semibold uppercase">
                     Average Cost Per Lead
                   </div>
                 </div>
@@ -209,13 +139,13 @@ const LeadGeneration = () => {
       </div>
 
       {/* Lead Gen Methods */}
-      <div className="py-20 lg:py-32">
+      <div className="py-20 lg:py-32 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 bounce">
-            <h2 className="bold-font text-5xl sm:text-6xl md:text-7xl text-gray-900 mb-6">
+            <h2 className="bold-font text-5xl sm:text-6xl md:text-7xl text-blue-800 mb-6">
               MULTI-CHANNEL LEAD GENERATION
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">
               We deploy proven strategies across multiple channels to maximize
               your lead volume and quality
             </p>
@@ -298,7 +228,7 @@ const LeadGeneration = () => {
             ].map((method, idx) => (
               <div
                 key={idx}
-                className="bounce lead-card bg-white rounded-3xl p-8 shadow-xl border-l-4 border-green-500"
+                className="bounce lead-card bg-white rounded-3xl p-8 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 border-l-4 border-l-[#e36a2e]"
                 style={{ transitionDelay: `${idx * 0.1}s` }}
               >
                 <div
@@ -307,19 +237,19 @@ const LeadGeneration = () => {
                 >
                   {method.icon}
                 </div>
-                <h3 className="bold-font text-3xl text-gray-900 mb-3">
+                <h3 className="bold-font text-3xl text-blue-800 mb-3">
                   {method.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-500 mb-6 leading-relaxed">
                   {method.description}
                 </p>
                 <div className="space-y-2">
                   {method.tactics.map((tactic, i) => (
                     <div
                       key={i}
-                      className="flex items-center text-sm text-gray-700"
+                      className="flex items-center text-sm text-gray-600"
                     >
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                      <div className="w-2 h-2 bg-[#e36a2e] rounded-full mr-3"></div>
                       {tactic}
                     </div>
                   ))}
@@ -331,13 +261,17 @@ const LeadGeneration = () => {
       </div>
 
       {/* Lead Quality */}
-      <div className="py-20 lg:py-32 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-20 lg:py-32 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 bounce">
+            <p className="text-[#e36a2e] text-sm font-bold tracking-[0.2em] uppercase mb-4">
+              Quality First
+            </p>
             <h2 className="bold-font text-5xl sm:text-6xl md:text-7xl text-white mb-6">
               QUALITY OVER QUANTITY
             </h2>
-            <p className="text-xl text-green-100 max-w-3xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
               We don't just generate leads—we generate qualified leads that
               actually convert into customers
             </p>
@@ -368,15 +302,15 @@ const LeadGeneration = () => {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bounce bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-2xl p-8 text-center"
+                className="bounce bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-8 text-center hover:border-zinc-700 transition-colors"
                 style={{ transitionDelay: `${idx * 0.1}s` }}
               >
                 <div className="bold-font text-2xl text-white mb-3">
                   {item.stage}
                 </div>
-                <p className="text-sm text-green-100 mb-4">{item.desc}</p>
-                <div className="bg-white/20 rounded-lg p-3">
-                  <div className="text-3xl font-bold text-white">
+                <p className="text-sm text-zinc-400 mb-4">{item.desc}</p>
+                <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                  <div className="text-3xl font-bold text-[#e36a2e]">
                     {item.score}
                   </div>
                 </div>
@@ -387,13 +321,13 @@ const LeadGeneration = () => {
       </div>
 
       {/* Industries */}
-      <div className="py-20 lg:py-32">
+      <div className="py-20 lg:py-32 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 bounce">
-            <h2 className="bold-font text-5xl sm:text-6xl md:text-7xl text-gray-900 mb-6">
+            <h2 className="bold-font text-5xl sm:text-6xl md:text-7xl text-blue-800 mb-6">
               PROVEN RESULTS ACROSS INDUSTRIES
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">
               We've generated millions of leads across diverse industries
             </p>
           </div>
@@ -415,7 +349,7 @@ const LeadGeneration = () => {
             ].map((industry, idx) => (
               <div
                 key={idx}
-                className="bounce bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 shadow-xl text-center text-white font-bold hover:scale-105 transition-transform cursor-pointer"
+                className="bounce bg-gradient-to-br from-[#e36a2e] to-orange-600 rounded-2xl p-6 shadow-xl text-center text-white font-bold hover:scale-105 transition-transform cursor-pointer"
                 style={{ transitionDelay: `${idx * 0.05}s` }}
               >
                 {industry}
@@ -426,13 +360,17 @@ const LeadGeneration = () => {
       </div>
 
       {/* Process */}
-      <div className="py-20 lg:py-32 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-20 lg:py-32 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 bounce">
+            <p className="text-[#e36a2e] text-sm font-bold tracking-[0.2em] uppercase mb-4">
+              How It Works
+            </p>
             <h2 className="bold-font text-5xl sm:text-6xl md:text-7xl text-white mb-6">
               OUR PROCESS
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-xl text-zinc-400">
               A systematic approach to generating consistent, high-quality leads
             </p>
           </div>
@@ -467,11 +405,11 @@ const LeadGeneration = () => {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bounce bg-gray-800 border-2 border-green-500 rounded-3xl p-8 flex items-center gap-8 hover:bg-gray-750 transition-colors"
+                className="bounce bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-3xl p-8 flex items-center gap-8 hover:border-zinc-700 transition-colors"
                 style={{ transitionDelay: `${idx * 0.1}s` }}
               >
-                <div className="flex-shrink-0 w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center">
-                  <span className="bold-font text-5xl text-white">
+                <div className="flex-shrink-0 w-24 h-24 bg-[#e36a2e]/10 border border-[#e36a2e]/20 rounded-2xl flex items-center justify-center">
+                  <span className="bold-font text-5xl text-[#e36a2e]">
                     {item.step}
                   </span>
                 </div>
@@ -479,7 +417,7 @@ const LeadGeneration = () => {
                   <h3 className="bold-font text-3xl text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-400 text-lg">{item.desc}</p>
+                  <p className="text-zinc-400 text-lg">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -488,18 +426,22 @@ const LeadGeneration = () => {
       </div>
 
       {/* CTA */}
-      <div className="py-20 lg:py-32 bg-gradient-to-br from-green-600 to-teal-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bounce">
+      <div className="py-20 lg:py-32 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e36a2e]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bounce relative z-10">
+          <p className="text-[#e36a2e] text-sm font-bold tracking-[0.2em] uppercase mb-4">
+            Let's Get Started
+          </p>
           <h2 className="bold-font text-5xl sm:text-6xl md:text-7xl text-white mb-6">
             READY TO GROW?
           </h2>
-          <p className="text-xl text-green-100 mb-12">
+          <p className="text-xl text-zinc-400 mb-12">
             Start generating qualified leads that turn into paying customers
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button
               onClick={() => navigate("/contact")}
-              className="bg-white text-green-600 px-12 py-6 rounded-full bold-font text-2xl hover:shadow-2xl transform hover:scale-105 transition-all"
+              className="bg-[#e36a2e] hover:bg-[#cf5f28] text-white px-12 py-6 rounded-full bold-font text-2xl shadow-[0_8px_20px_rgba(227,106,46,0.3)] hover:-translate-y-0.5 transition-all duration-300"
             >
               GET STARTED
             </button>

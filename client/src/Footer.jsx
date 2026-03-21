@@ -8,7 +8,7 @@ import {
   Twitter,
   ChevronRight,
 } from "lucide-react";
-import image10 from "../images/logo.jpg";
+import image10 from "../images/logowhite.png";
 
 export default function Footer() {
   const quickLinks = [
@@ -48,13 +48,13 @@ export default function Footer() {
           >
             <img
               src={image10}
-              alt="Growth Flow Media"
+              alt="Aussie Growth Media"
               className="w-40 object-contain"
             />
           </Link>
 
           <p className="text-zinc-400 leading-relaxed text-sm mb-8 pr-4">
-            At Growth Flow Media, we pride ourselves on delivering top-tier
+            At Aussie Growth Media, we pride ourselves on delivering top-tier
             services at some of the most competitive prices in the market. We
             don't just run campaigns, we engineer growth.
           </p>
@@ -156,7 +156,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-zinc-900/80">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-zinc-500">
           <p>
-            © {new Date().getFullYear()} Growth Flow Media. All Rights Reserved.
+            © {new Date().getFullYear()} Aussie Growth Media. All Rights
+            Reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link to="/" className="hover:text-white transition-colors">

@@ -234,7 +234,7 @@ const SEO = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-6"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-blue-800 tracking-tight mb-6"
               data-aos="fade-up"
             >
               Our core <span className="text-[#e36a2e]">SEO Pillars.</span>
@@ -259,7 +259,7 @@ const SEO = () => {
               <div className="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center mb-8 transition-colors duration-500 group-hover:bg-[#e36a2e]/10">
                 <Settings className="w-8 h-8 text-[#e36a2e]" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-blue-800 mb-4">
                 Technical SEO
               </h3>
               <p className="text-gray-500 mb-8 leading-relaxed">
@@ -289,7 +289,7 @@ const SEO = () => {
               <div className="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center mb-8 transition-colors duration-500 group-hover:bg-[#e36a2e]/10">
                 <FileText className="w-8 h-8 text-[#e36a2e]" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-blue-800 mb-4">
                 Content SEO
               </h3>
               <p className="text-gray-500 mb-8 leading-relaxed">
@@ -319,7 +319,7 @@ const SEO = () => {
               <div className="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center mb-8 transition-colors duration-500 group-hover:bg-[#e36a2e]/10">
                 <LinkIcon className="w-8 h-8 text-[#e36a2e]" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-blue-800 mb-4">
                 Authority Building
               </h3>
               <p className="text-gray-500 mb-8 leading-relaxed">
