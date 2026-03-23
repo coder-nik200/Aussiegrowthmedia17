@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -13,20 +13,6 @@ const DEFAULT_SERVICE_OPTIONS = [
   "Sales Pipeline",
 ];
 
-/**
- * DarkPillForm — Reusable dark pill-style enquiry form
- *
- * Props:
- *  @param {string}   formTitle       - Main heading (default: "Ready to transform your agency?")
- *  @param {string}   formSubtitle    - Subtext below heading
- *  @param {string}   serviceLabel    - Label above pill options (default: "How can we help?")
- *  @param {string[]} serviceOptions  - Pill options list (uses DEFAULT_SERVICE_OPTIONS if omitted)
- *  @param {string}   submitLabel     - Button text (default: "Submit Request")
- *  @param {string}   accentColor     - Hex accent color (default: "#e36a2e")
- *  @param {string}   apiUrl          - POST endpoint URL
- *  @param {string}   successPath     - Route after success (default: "/success-page")
- *  @param {string}   className       - Extra classes on outer wrapper
- */
 const GoHighForm = ({
   formTitle = "Ready to transform your agency?",
   formSubtitle = "Fill out the form below and our integration experts will be in touch.",
@@ -34,11 +20,12 @@ const GoHighForm = ({
   serviceOptions = DEFAULT_SERVICE_OPTIONS,
   submitLabel = "Submit Request",
   accentColor = "#e36a2e",
-  apiUrl = "https://growthflowmedia-esxn.vercel.app/web/api/enquiry/enquiry-insert",
+  apiUrl = "http://localhost:5000/web/api/enquiry/enquiry-insert",
   successPath = "/success-page",
   className = "",
 }) => {
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,26 +37,36 @@ const GoHighForm = ({
   const handleChange = (e) =>
     setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.email.endsWith("@gmail.com")) {
-      toast.error("Incorrect email!");
+
+    // ✅ Fixed validation — accepts ANY email, not just @gmail.com
+    if (!formData.name || !formData.email) {
+      toast.error("Please fill out your name and email.");
       return;
     }
-    axios
-      .post(apiUrl, formData)
-      .then(() => {
-        toast.success("Message sent!");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          callback: "",
-          service: "",
-        });
-        navigate(successPath);
-      })
-      .catch(() => toast.error("Failed to send message."));
+
+    setIsSubmitting(true);
+
+    try {
+      // ✅ Posts to local backend — same endpoint as ContactForm
+      await axios.post(apiUrl, formData);
+
+      toast.success("Message sent!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        callback: "",
+        service: "",
+      });
+      navigate(successPath);
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+      console.error("GoHighForm Submit Error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -93,8 +90,8 @@ const GoHighForm = ({
           name="name"
           value={formData.name}
           onChange={handleChange}
+          required
           className="w-full px-5 py-4 rounded-xl bg-zinc-950/50 text-white border border-zinc-800 focus:outline-none placeholder:text-zinc-600 text-sm sm:text-base transition-all duration-300"
-          style={{}}
           onFocus={(e) => {
             e.target.style.borderColor = accentColor;
             e.target.style.boxShadow = `0 0 0 1px ${accentColor}`;
@@ -110,6 +107,7 @@ const GoHighForm = ({
           name="email"
           value={formData.email}
           onChange={handleChange}
+          required
           className="w-full px-5 py-4 rounded-xl bg-zinc-950/50 text-white border border-zinc-800 focus:outline-none placeholder:text-zinc-600 text-sm sm:text-base transition-all duration-300"
           onFocus={(e) => {
             e.target.style.borderColor = accentColor;
@@ -210,7 +208,8 @@ const GoHighForm = ({
       {/* Submit button */}
       <button
         type="submit"
-        className="group w-full text-white font-semibold text-sm sm:text-base tracking-wide uppercase px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-3"
+        disabled={isSubmitting}
+        className="group w-full text-white font-semibold text-sm sm:text-base tracking-wide uppercase px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
         style={{
           background: accentColor,
           boxShadow: `0 8px 20px ${accentColor}4D`,
@@ -222,36 +221,15 @@ const GoHighForm = ({
           e.currentTarget.style.filter = "";
         }}
       >
-        {submitLabel}
-        <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+        {isSubmitting ? "Sending..." : submitLabel}
+        {isSubmitting ? (
+          <Loader2 className="w-5 h-5 animate-spin" />
+        ) : (
+          <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+        )}
       </button>
     </form>
   );
 };
 
 export default GoHighForm;
-
-// ─── USAGE EXAMPLES ───────────────────────────────────────────────────────────
-//
-// Basic (all defaults):
-//   <DarkPillForm />
-//
-// Custom title + services:
-//   <DarkPillForm
-//     formTitle="Let's grow your business"
-//     formSubtitle="Tell us what you need and we'll be in touch."
-//     serviceOptions={["SEO", "Google Ads", "Meta Ads", "Web Design"]}
-//     submitLabel="Book a Call"
-//   />
-//
-// Custom accent color:
-//   <DarkPillForm accentColor="#3b82f6" />
-//
-// Custom API + redirect:
-//   <DarkPillForm
-//     apiUrl="https://my-api.com/contact"
-//     successPath="/thank-you"
-//   />
-//
-// With extra wrapper styling:
-//   <DarkPillForm className="max-w-xl mx-auto" />

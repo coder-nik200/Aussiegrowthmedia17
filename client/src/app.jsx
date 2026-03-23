@@ -1,18 +1,44 @@
-// App.jsxBranding
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
-  Outlet, // <-- 1. Import Outlet
+  Outlet,
+  useLocation,
 } from "react-router-dom";
+import axios from "axios";
 
-// Global Components
+export const api = axios.create({
+  baseURL:
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://growthflowmedia-esxn.vercel.app/web/api",
+
+  withCredentials: false,
+
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// ======================================================================
+// 2. GLOBAL COMPONENTS & HELPERS
+// ======================================================================
 import CursorDot from "./components/CursorDot";
-import Header from "./components/Header"; // Make sure this path is correct for your Header
+import Header from "./components/Header";
 
-// Pages
+// Scroll Restoration: Forces the page to the top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
+// ======================================================================
+// 3. PAGES
+// ======================================================================
 import AIAgentsAutomation from "./ai-agents-automation";
 import Branding from "./Branding";
 import ConversionRateOptimization from "./Conversion";
@@ -32,28 +58,28 @@ import Contact from "./Contact";
 import FormSubmissionConfirmation from "./SuccessPage";
 import About from "./About";
 
-// ── LAYOUT COMPONENT ──────────────────────────────────────────────────
-// This wraps every page inside it.
+// ======================================================================
+// 4. LAYOUTS
+// ======================================================================
 const MainLayout = () => {
   return (
     <div className="relative flex flex-col min-h-screen w-full mx-auto overflow-x-hidden bg-[#fafafa]">
-      {/* The Header stays at the top of every page */}
       <Header />
-
-      {/* The Outlet is where your current page (e.g., About, SEO, etc.) gets injected */}
       <main className="flex-grow">
         <Outlet />
       </main>
-
-      {/* Note: If you want your Footer on every page automatically, you can import and add <Footer /> here too! */}
+      {/* <Footer /> goes here later! */}
     </div>
   );
 };
-// ──────────────────────────────────────────────────────────────────────
 
-function AppRouter() {
+// ======================================================================
+// 5. MAIN ROUTER
+// ======================================================================
+export default function AppRouter() {
   return (
     <Router>
+      <ScrollToTop />
       <CursorDot />
 
       <Routes>
@@ -81,15 +107,12 @@ function AppRouter() {
           <Route path="/seo" element={<SEO />} />
         </Route>
 
-        {/* Pages WITHOUT the Header (Outside the MainLayout) */}
-        {/* Things like Success pages, Login screens, or 404s go here */}
+        {/* Pages WITHOUT the Header */}
         <Route path="/success-page" element={<FormSubmissionConfirmation />} />
 
-        {/* Catch-all redirect to home if a user types a wrong URL */}
+        {/* Catch-all redirect */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
 }
-
-export default AppRouter;

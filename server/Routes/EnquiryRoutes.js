@@ -1,9 +1,8 @@
-let express=require("express");
-const { enquiryInsert} = require("../DataFolder/UserEnquiryFolder");
+const express = require("express");
+const { enquiryInsert } = require("../DataFolder/UserEnquiryFolder");
 
+let enquiryRoutes = express.Router();
 
+enquiryRoutes.post("/enquiry-insert", enquiryInsert);
 
-let enquiryRoutes=express.Router();
-enquiryRoutes.post("/enquiry-insert",enquiryInsert);
-
-module.exports={enquiryRoutes};
+module.exports = { enquiryRoutes };

@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { ChevronRight, ArrowRightCircle } from "lucide-react";
-import image6 from "../images/logo.jpg";
+import React, { useEffect } from "react";
+import { ChevronRight } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import FormData from "./components/FormData";
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
 
 const SERVICES = [
   {
@@ -67,24 +65,6 @@ const WHY = [
   "Differentiates from competitors",
 ];
 
-const RADIO_OPTIONS = [
-  "Website Design",
-  "ECommerce Websites",
-  "Service Website",
-  "Branding & Logo Design",
-  "Digital Marketing",
-  "Search Engine Optimisation",
-  "Google Ads Management",
-  "Meta Ads Management",
-  "Content Marketing",
-  "Conversion Rate Optimization",
-  "Managed Hosting",
-  "Go High Level CRM",
-  "AI Agents/Automation Development",
-  "White Label Marketing",
-  "Lead Generation",
-];
-
 const NEWS = [
   {
     img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
@@ -105,15 +85,6 @@ const NEWS = [
 ];
 
 export default function Branding() {
-  const navigate = useNavigate();
-  const [selected, setSelected] = useState("");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    callback: "",
-  });
-
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);

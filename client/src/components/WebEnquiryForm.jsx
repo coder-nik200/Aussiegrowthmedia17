@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -34,11 +34,12 @@ const WebEnquiryForm = ({
   serviceOptions = DEFAULT_SERVICE_OPTIONS,
   submitLabel = "Submit Request",
   accentColor = "#e36a2e",
-  apiUrl = "https://growthflowmedia-esxn.vercel.app/web/api/enquiry/enquiry-insert",
+  apiUrl = "http://localhost:5000/web/api/enquiry/enquiry-insert", // ✅ local backend
   successPath = "/success-page",
   className = "",
 }) => {
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false); // ✅ loading state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,26 +51,30 @@ const WebEnquiryForm = ({
   const handleChange = (e) =>
     setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  // ✅ Fixed: accepts any email, async/await, loading state
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.email.endsWith("@gmail.com")) {
-      toast.error("Incorrect email!");
+    if (!formData.name || !formData.email) {
+      toast.error("Please fill out your name and email.");
       return;
     }
-    axios
-      .post(apiUrl, formData)
-      .then(() => {
-        toast.success("Message sent!");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          callback: "",
-          service: "",
-        });
-        navigate(successPath);
-      })
-      .catch(() => toast.error("Failed to send message."));
+    setIsSubmitting(true);
+    try {
+      await axios.post(apiUrl, formData);
+      toast.success("Message sent!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        callback: "",
+        service: "",
+      });
+      navigate(successPath);
+    } catch {
+      toast.error("Failed to send message.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Shared input focus/blur handlers driven by accentColor prop
@@ -197,7 +202,8 @@ const WebEnquiryForm = ({
       {/* Submit */}
       <button
         type="submit"
-        className="group w-full text-white font-semibold text-sm sm:text-base tracking-wide uppercase px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-3"
+        disabled={isSubmitting}
+        className="group w-full text-white font-semibold text-sm sm:text-base tracking-wide uppercase px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
         style={{
           background: accentColor,
           boxShadow: `0 8px 20px ${accentColor}4D`,
@@ -209,8 +215,12 @@ const WebEnquiryForm = ({
           e.currentTarget.style.filter = "";
         }}
       >
-        {submitLabel}
-        <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+        {isSubmitting ? "Sending..." : submitLabel}
+        {isSubmitting ? (
+          <Loader2 className="w-5 h-5 animate-spin" />
+        ) : (
+          <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+        )}
       </button>
     </form>
   );

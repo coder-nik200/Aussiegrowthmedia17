@@ -1,15 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  Globe,
-  Target,
-  Server,
-  Bot,
-  Layers,
-  UserPlus,
-  Mail,
-  ChevronDown,
-  Plus,
-} from "lucide-react";
+import { ChevronDown, Plus } from "lucide-react";
 import {
   Phone,
   Facebook,
@@ -962,7 +952,7 @@ export default function GrowthFlowMedia() {
               {/* CTA */}
               <button
                 onClick={scrollToContact}
-                className="group relative inline-flex items-center gap-3 font-['Montserrat'] text-sm font-semibold tracking-[0.15em] uppercase overflow-hidden rounded-full px-8 py-4 bg-orange-500 hover:bg-orange-400 text-black transition-all duration-300"
+                className="group relative inline-flex items-center gap-3 font-['Montserrat'] text-sm font-semibold tracking-[0.15em] uppercase overflow-hidden rounded-full px-8 py-4 bg-white hover:bg-orange-400 text-black transition-all duration-300"
               >
                 <span className="relative">Get Started Now</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

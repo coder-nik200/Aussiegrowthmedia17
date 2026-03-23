@@ -1,36 +1,28 @@
 let mongoose = require("mongoose");
+
 let userEnquirySchema = mongoose.Schema({
   name: {
-    type:String,
+    type: String,
     required: true,
   },
   email: {
-    type:String,
+    type: String,
     required: true,
     unique: true,
   },
   phone: {
-    type:String,
+    type: String,
     required: true,
   },
-   callback: {
-    type:String,
+  callback: {
+    type: String,
     required: true,
   },
-   service: {
-    type:String,
+  service: {
+    type: String,
     required: true,
   },
-  
-  
 });
 
-
-
-let enquiryModel=mongoose.model("enquiry",userEnquirySchema)
-module.exports=enquiryModel;
-
-
-
-
-
+let enquiryModel = mongoose.model("enquiry", userEnquirySchema);
+module.exports = enquiryModel;

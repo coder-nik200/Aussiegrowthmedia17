@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   Award,
   Zap,
-  Rocket,
   BarChart3,
   Users,
   Settings,

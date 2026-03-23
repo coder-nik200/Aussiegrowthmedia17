@@ -21,7 +21,7 @@ const SERVICE_ITEMS = [
   { name: "Lead Generation", path: "/lead" },
 ];
 
-export default function Header({ scrollToContact }) {
+export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const dropRef = useRef(null);
@@ -30,6 +30,16 @@ export default function Header({ scrollToContact }) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServices, setMobileServices] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const scrollToContact = () => {
+    const contactElement = document.getElementById("contact");
+
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/contact");
+    }
+  };
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 16);

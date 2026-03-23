@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
-  Menu,
-  ChevronDown,
   ChevronRight,
-  ArrowRightCircle,
-  Phone,
-  Mail,
   Globe,
-  Bot,
   Target,
-  Server,
-  UserPlus,
   Layers,
   CheckCircle2,
 } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "./Footer";
